@@ -1,29 +1,16 @@
 import bg from "../../public/bulldozerseaguls.png";
-import { AppBar, Toolbar } from "@mui/material";
+import { Toolbar } from "@mui/material";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 const pagesLeft = ["Albums", "Videos", "Gigs"];
-import { YouTube } from "@mui/icons-material";
 import Link from "next/link";
+import { YouTube } from "@mui/icons-material";
+
 import { blackHanSans } from "@/app/fonts";
 
 const pagesRight = ["Reviews", "Bio", "Contact"];
-
-/* UBFooter */
-
-// position: absolute;
-// width: 1440px;
-// height: 443px;
-// left: calc(50% - 1440px/2);
-// bottom: 0px;
-
-// background: url(bulldozerseaguls.png);
 
 export const Footer = () => {
   return (
@@ -162,8 +149,13 @@ export const Footer = () => {
             width: "100vw",
           }}
         >
-          <IconButton aria-label="youtube">
-            <YouTube style={{ fontSize: "4rem", fill: "#E2B164" }} />
+          <IconButton
+            aria-label="youtube"
+            component="a"
+            target="_blank"
+            href="https://www.youtube.com/channel/UCJzQ4krap2qE6JBMbS_IRmg"
+          >
+            <YouTube style={{ fontSize: "3.5rem", fill: "#E2B164" }} />
           </IconButton>
         </Grid>
         <Grid
@@ -176,9 +168,7 @@ export const Footer = () => {
             justifyContent: "center",
             alignItems: "flex-end",
             color: "white",
-            // fontFamily: "Black Han Sans",
             fontSize: "1.125rem",
-
             textShadow:
               "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 8px 8px rgba(0, 0, 0, 0.25)",
             width: "100vw",

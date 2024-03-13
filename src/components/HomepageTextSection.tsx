@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { blackHanSans, roboto } from "@/app/fonts";
+import { blackHanSans, roboto } from "../app/fonts";
 
 export const HomepageTextSection = () => {
   return (
@@ -47,13 +47,31 @@ export const HomepageTextSection = () => {
           songs, jigs, sideshow melodies, and field hollers. His songs give
           voice to craftsmen, broken-hearted mechanics, heavy equipment
           operators, squatters and girls with their dirt bikes. Like many of his
-          characters, he’s been around: after growing up in Maryland, Mark’s
+          characters, Mark’s been around: after growing up in Maryland, he’s
           done some farming, worked as a mechanic, spent years as a commercial
           fisherman in the northern Pacific and worked as a carpenter in the
           northeastern US. These experiences have influenced his music the way
-          an oak cask influences good whiskey. Check our roster for shows.
-          Albums are well received, see reviews, and video, too. Reach out if
-          you want to connect.
+          an oak cask influences good whiskey.
+        </Typography>
+        <Typography
+          mt=".75rem"
+          className={roboto.className}
+          component="p"
+          sx={{
+            // fontFamily: "Roboto",
+            textAlign: "center",
+            fontWeight: "normal",
+            fontSize: "1rem",
+
+            letterSpacing: ".1rem",
+          }}
+        >
+          Mark’s music is available on your favorite streaming service so you
+          can listen there, or check out a few tracks in the discography and
+          read some reviews. He’s played for people at home here in Ulster
+          County, New York and all over the world; check the gigs page for
+          upcoming shows, or catch a live performance or music video here. I’d
+          love to connect on social media, by email or phone - reach out!
         </Typography>
       </Box>
     </Box>

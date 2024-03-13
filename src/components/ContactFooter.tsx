@@ -60,8 +60,10 @@ export const ContactFooter = () => {
             fontSize="1.125rem"
             sx={{ letterSpacing: ".125rem" }}
           >
-            <PhoneIphoneIcon sx={{ fill: "#E2B164", fontSize: "2rem" }} /> 845
-            616 0579
+            <PhoneIphoneIcon sx={{ fill: "#E2B164", fontSize: "2rem" }} />{" "}
+            <a target="_blank" href="tel:845-616-0579">
+              845 616 0579
+            </a>
           </Box>
           <Box
             display="flex"
@@ -76,7 +78,9 @@ export const ContactFooter = () => {
             <EmailIcon
               sx={{ fill: "#E2B164", fontSize: "2rem", marginRight: ".5rem" }}
             />
-            mark@unclebuckle.com
+            <a target="_blank" href="mailto:mark@unclebuckle.com">
+              mark@unclebuckle.com
+            </a>
           </Box>
         </Box>
         <Box
@@ -89,7 +93,12 @@ export const ContactFooter = () => {
             width: "100vw",
           }}
         >
-          <IconButton aria-label="youtube">
+          <IconButton
+            aria-label="youtube"
+            component="a"
+            target="_blank"
+            href="https://www.youtube.com/channel/UCJzQ4krap2qE6JBMbS_IRmg"
+          >
             <YouTube style={{ fontSize: "3rem", fill: "#E2B164" }} />
           </IconButton>
         </Box>
