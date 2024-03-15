@@ -1,24 +1,15 @@
-// /* Homepage Header */
-
-// position: absolute;
-// width: 1440px;
-// height: 1433px;
-// left: 0px;
-// top: 0px;
-
-// background: #FFFFFF;
-import Image from "next/image";
+import Box from "@mui/material/Box";
 import bg from "../../public/markbrownhappyhourcovernotext.png";
 
 export function HomepageHero({}) {
   return (
-    <div
+    <Box
       className="homepage-hero-container"
-      style={{
+      sx={{
         backgroundImage: `url(${bg.src})`,
         minHeight: "100vh",
         width: "100vw",
-        height: "200vh",
+        height: { xs: "100vh", md: "200vh" },
         objectFit: "cover",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -31,7 +22,7 @@ export function HomepageHero({}) {
         className="homepage-hero"
         fill={true}
       /> */}
-    </div>
+    </Box>
   );
 
   /* Homepage Header */

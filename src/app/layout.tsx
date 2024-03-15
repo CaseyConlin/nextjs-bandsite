@@ -17,6 +17,9 @@ const blackHanSans = Black_Han_Sans({
 });
 
 import "./globals.css";
+import NavBar from "@/components/NavBar";
+import { ContactFooter } from "@/components/ContactFooter";
+import { Footer } from "@/components/Footer";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +35,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={blackHanSans.className}>{children}</body>
+      <body>
+        <NavBar />
+        {children}
+        <ContactFooter />
+        <Footer />
+      </body>
     </html>
   );
 }

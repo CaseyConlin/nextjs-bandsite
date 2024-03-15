@@ -51,7 +51,10 @@ function NavBar() {
         container
         sx={{ display: "flex", justifyContent: "center", width: "100vw" }}
       >
-        <Toolbar disableGutters sx={{ display: "flex" }}>
+        <Toolbar
+          disableGutters
+          sx={{ display: "flex", justifyContent: "center" }}
+        >
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           {/* <Typography
             variant="h6"
@@ -71,7 +74,34 @@ function NavBar() {
             Mark Brown
           </Typography> */}
           {/* Mobile */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Typography
+            variant="h5"
+            className={blackHanSans.className}
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              //   mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              //   fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+
+              fontSize: "2rem",
+
+              textAlign: "center",
+
+              //   letterSpacing: ".3rem",
+              color: "#E2B164",
+              textShadow:
+                "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)",
+              textDecoration: "none",
+            }}
+          >
+            Mark Brown
+          </Typography>
+          {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -106,31 +136,17 @@ function NavBar() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              //   fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography>
+          </Box> */}
+
           <Grid
             container
-            sx={{ justifyContent: "space-evenly", width: "100vw" }}
+            sx={{
+              display: { xs: "none", md: "flex" },
+              justifyContent: "space-evenly",
+              width: "100vw",
+            }}
           >
-            <Grid
+            {/* <Grid
               xs={4}
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -155,7 +171,7 @@ function NavBar() {
                   {page}
                 </Button>
               ))}
-            </Grid>
+            </Grid> */}
             <Grid
               xs="auto"
               sx={{
@@ -191,7 +207,7 @@ function NavBar() {
                 Mark Brown
               </Typography>
             </Grid>
-            <Grid
+            {/* <Grid
               xs={4}
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -216,7 +232,7 @@ function NavBar() {
                   {page}
                 </Button>
               ))}
-            </Grid>
+            </Grid> */}
           </Grid>
         </Toolbar>
       </Grid>

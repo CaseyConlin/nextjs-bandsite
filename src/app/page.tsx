@@ -1,17 +1,17 @@
 import styles from "./page.module.css";
 import { HomepageHero } from "@/components/HomepageHero";
-import NavBar from "@/components/NavBar";
 import { HomepageTextSection } from "@/components/HomepageTextSection";
-import { Footer } from "@/components/Footer";
 import { HomepageVideo } from "@/components/HomepageVideoPlayer";
-import { ContactFooter } from "@/components/ContactFooter";
+import { HomepageAudioPlayer } from "@/components/HomepageAudioPlayer";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <main className={styles.main}>
         <HomepageHero />
+        <HomepageAudioPlayer />
+
         <HomepageTextSection />
         {/* <div className={styles.description}>
         <p>
@@ -100,9 +100,9 @@ export default function Home() {
         </a>
       </div> */}
         <HomepageVideo />
-        <ContactFooter />
       </main>
-      <Footer />
     </>
   );
-}
+};
+
+export default Home;

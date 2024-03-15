@@ -16,7 +16,7 @@ export const ContactFooter = () => {
         alignItems: "center",
         padding: "5rem",
         bgcolor: "black",
-        width: "100vw",
+        // width: "100vw",
       }}
     >
       <Box bgcolor="#27221D" py="2rem">

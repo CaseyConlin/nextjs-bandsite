@@ -4,8 +4,10 @@ import { blackHanSans, roboto } from "../app/fonts";
 export const HomepageTextSection = () => {
   return (
     <Box
-      p={10}
       sx={{
+        padding: { xs: "1rem", md: "5rem" },
+        paddingTop: { xs: "3rem", md: "5rem" },
+        paddingBottom: { xs: "3rem", md: "5rem" },
         bgcolor: "#27221D",
         color: "white",
         width: "100vw",
@@ -36,7 +38,6 @@ export const HomepageTextSection = () => {
             textAlign: "center",
             fontWeight: "normal",
             fontSize: "1rem",
-
             letterSpacing: ".1rem",
           }}
         >

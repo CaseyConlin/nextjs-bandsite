@@ -24,6 +24,7 @@ export const HomepageVideo = () => {
           marginBottom: "2.5rem",
           bgcolor: "transparent",
           boxShadow: "none",
+          flexDirection: { xs: "column", md: "row" },
         }}
       >
         <CardMedia
@@ -34,12 +35,17 @@ export const HomepageVideo = () => {
             borderRadius: "25px",
             width: { md: "45vw" },
           }}
+          title="Acetone - Mark Brown"
           src="https://www.youtube.com/embed/T7yoIB4v8UM?si=1BwTmNHpGOgKjv7M"
           // alt="Mark Brown Plays Acetone at the Rosendale Cafe."
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent
-            sx={{ flex: "1 0 auto", width: "25vw", padding: "2rem" }}
+            sx={{
+              flex: "1 0 auto",
+              width: { xs: "95vw", md: "25vw" },
+              padding: "2rem",
+            }}
           >
             <Typography
               component="div"

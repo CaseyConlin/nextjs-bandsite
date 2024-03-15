@@ -20,7 +20,7 @@ export const Footer = () => {
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${bg.src})`,
         height: 450,
-        width: "100vw",
+        // width: "100vw",
 
         objectFit: "cover",
         backgroundSize: "cover",
@@ -48,7 +48,7 @@ export const Footer = () => {
               alignContent: "flex-end",
             }}
           >
-            <Grid
+            {/* <Grid
               py={0}
               my={0}
               xs={4}
@@ -75,7 +75,7 @@ export const Footer = () => {
                   {page}
                 </Button>
               ))}
-            </Grid>
+            </Grid> */}
             <Grid
               xs="auto"
               sx={{
@@ -92,11 +92,8 @@ export const Footer = () => {
                 component="a"
                 href="#app-bar-with-responsive-menu"
                 sx={{
-                  display: {
-                    xs: "none",
-                    md: "flex",
-                  },
-                  fontSize: { md: "2.5rem", xl: "3.5rem" },
+                  display: "flex",
+                  fontSize: { xs: "2rem", md: "2.5rem", xl: "3.5rem" },
                   textAlign: "center",
 
                   //   letterSpacing: ".3rem",
@@ -110,7 +107,7 @@ export const Footer = () => {
                 Mark Brown
               </Typography>
             </Grid>
-            <Grid
+            {/* <Grid
               xs={4}
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -135,7 +132,7 @@ export const Footer = () => {
                   {page}
                 </Button>
               ))}
-            </Grid>
+            </Grid> */}
           </Grid>
         </Toolbar>
         <Grid
@@ -168,7 +165,7 @@ export const Footer = () => {
             justifyContent: "center",
             alignItems: "flex-end",
             color: "white",
-            fontSize: "1.125rem",
+            fontSize: { xs: "1rem", md: "1.125rem" },
             textShadow:
               "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 8px 8px rgba(0, 0, 0, 0.25)",
             width: "100vw",
