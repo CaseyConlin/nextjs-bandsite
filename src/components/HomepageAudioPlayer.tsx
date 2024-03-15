@@ -1,6 +1,6 @@
 "use client"; // This is a client component 👈🏽
 import * as React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback, ChangeEvent } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -16,10 +16,15 @@ import VolumeDownRounded from "@mui/icons-material/VolumeDownRounded";
 import Image from "next/image";
 import happyHourCover from "../../public/markbrownhappyhourcover.png";
 import uncleBuckleCover from "../../public/Unkle-Buckle-cover.jpg";
+
 import emotionStyled from "@emotion/styled";
+import { roboto } from "../app/fonts";
+
 import { music } from "@/data/music";
 import { Container, Grid } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import { isPageStatic } from "next/dist/build/utils";
+import { Height } from "@mui/icons-material";
 const Widget = emotionStyled("div")(({ theme }) => ({
   //   padding: 16,
   borderRadius: "25px",
@@ -38,12 +43,13 @@ const Widget = emotionStyled("div")(({ theme }) => ({
   //   backdropFilter: "blur(40px)",
 }));
 export type track = {
+  trackNum: number;
   songName: string;
   album: string;
   albumCover: string;
   artist: string;
   file: string;
-  duration: number;
+  duration: string;
 };
 const CoverImage = styled("div")({
   width: "215px",
@@ -67,18 +73,53 @@ const TinyText = styled(Typography)({
 
 export const HomepageAudioPlayer = () => {
   const [albumImage, setAlbumImage] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [duration, setDuration] = useState(0);
+  const [position, setPosition] = useState(0);
+
   const [songTrack, setSongTrack] = useState(0);
   const [trackList, setTrackList] = useState([
     {
+      trackNum: 1,
       songName: "",
       album: "",
       albumCover: "",
       artist: "",
       file: "",
-      duration: 0,
+      duration: "0",
     },
   ]);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    async function getTrackDuration(file: string) {
+      return new Promise((resolve) => {
+        const audio = document.createElement("audio");
+        audio.muted = true;
+        const source = document.createElement("source");
+        source.src = file;
+        audio.preload = "metadata";
+        audio.appendChild(source);
+        audio.onloadedmetadata = function () {
+          resolve(audio.duration);
+        };
+      });
+    }
+
+    async function setDurations() {
+      let promises = music.map(async (song) => {
+        return getTrackDuration(song.file).then((dur: any) => {
+          song.duration = formatDuration(Number(dur));
+        });
+      });
+      Promise.all(promises).then(() => {
+        setTrackList(music);
+      });
+    }
+
+    setDurations();
+    durationHandler();
+  }, []);
 
   const playPauseHandler = () => {
     paused ? setPaused(false) : setPaused(true);
@@ -92,64 +133,96 @@ export const HomepageAudioPlayer = () => {
   };
 
   const nextTrackHandler = () => {
+    if (audioRef.current) {
+      audioRef.current.paused ? setIsPlaying(false) : setIsPlaying(true);
+    }
     const track = songTrack == music.length - 1 ? 0 : songTrack + 1;
     setSongTrack(track);
   };
   const prevTrackHandler = () => {
+    if (audioRef.current) {
+      audioRef.current.paused ? setIsPlaying(false) : setIsPlaying(true);
+    }
+    if (position > 1) {
+      if (audioRef.current) {
+        return (audioRef.current.currentTime = 0);
+      }
+    }
     const track = songTrack == 0 ? music.length - 1 : songTrack - 1;
     setSongTrack(track);
+
+    if (audioRef.current) {
+      audioRef.current.paused
+        ? audioRef.current.play()
+        : audioRef.current.pause();
+    }
   };
 
   useEffect(() => {
-    async function getTrackDuration(file: string) {
-      // const audioFile = new Blob(file, { type: "audio/mp3" });
-      // const url = URL.createObjectURL(file);
+    if (audioRef.current && isPlaying) {
+      audioRef.current.play();
+      setIsPlaying(false);
+    }
+  }, [isPlaying]);
 
-      return new Promise((resolve) => {
-        const audio = document.createElement("audio");
-        audio.muted = true;
-        const source = document.createElement("source");
-        source.src = file; //--> blob URL
-        audio.preload = "metadata";
-        audio.appendChild(source);
-        audio.onloadedmetadata = function () {
-          resolve(audio.duration);
-        };
-      });
+  useEffect(() => {
+    if (
+      audioRef.current &&
+      Math.floor(audioRef.current.currentTime) >=
+        Math.floor(audioRef.current.duration)
+    ) {
+      nextTrackHandler();
+      audioRef.current.onloadeddata = () => {
+        if (audioRef.current) audioRef.current.play();
+      };
     }
-    async function setDurations() {
-      const tracks: track[] = [];
-      let promises = music.map(async (song) => {
-        return getTrackDuration(song.file).then((dur: any) => {
-          song.duration = dur;
-          //   tracks.push(song);
-          // return song;
-        });
-        //   .then((newTrack) => {
-        //     tracks.push(newTrack);
-        //   })
-        // .then(() => {
-        //   return tracks;
-        // })
-      });
-      Promise.all(promises).then(() => {
-        setTrackList(music);
-      });
+  });
+
+  const durationHandler = () => {
+    if (audioRef.current) {
+      setDuration(Math.floor(audioRef.current.duration));
     }
-    setDurations();
-    // setDurations().then((res: any) => {
-    //   console.log(res);
-    //   setTrackList(res);
-    // });
-  }, []);
-  const playingTrackDuration = 200; // seconds
-  const [position, setPosition] = React.useState(32);
-  const [paused, setPaused] = React.useState(false);
+  };
+
+  const timeUpdate = useCallback(
+    (event: ChangeEvent<HTMLAudioElement>) => {
+      setPosition(Math.floor(event.currentTarget.currentTime));
+      event.currentTarget.paused ? setPaused(true) : setPaused(false);
+      console.log(paused);
+    },
+
+    [setPosition]
+  );
+
+  const scrubTimeHandler = (_: Event, newValue: number | number[]) => {
+    // event;
+    console.log(newValue);
+    if (typeof newValue === "number") {
+      setPosition(newValue);
+
+      if (audioRef.current) {
+        audioRef.current.currentTime = newValue;
+      }
+    }
+  };
+
+  const songClickHandler = (trackNum: number) => {
+    setSongTrack(trackNum - 1);
+    if (audioRef.current) {
+      audioRef.current.onloadeddata = () => {
+        if (audioRef.current) audioRef.current.play();
+      };
+    }
+  };
+
+  //   const playingTrackDuration = 200; // seconds
+  //   const [position, setPosition] = React.useState(32);
+  const [paused, setPaused] = useState(true);
   const [volume, setVolume] = useState(50);
 
   function formatDuration(value: number) {
     const minute = Math.floor(value / 60);
-    const secondLeft = value - minute * 60;
+    const secondLeft = Math.floor(value - minute * 60);
     return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
   }
 
@@ -171,8 +244,9 @@ export const HomepageAudioPlayer = () => {
     >
       <Grid2
         container
-        columnSpacing={2}
+        columnSpacing={3}
         p={3}
+        px=""
         sx={{
           display: "flex",
           justifyContent: "space-between",
@@ -183,12 +257,14 @@ export const HomepageAudioPlayer = () => {
           borderRadius: "25px",
           marginTop: "-100px",
           position: "relative",
+          //   maxHeight: "60vh",
 
           backgroundColor: "rgba(255, 255, 255, 0.93)",
           backdropFilter: "blur(40px)",
         }}
       >
         <Grid2
+          pr={5}
           xs={12}
           md={7}
           sx={{
@@ -203,22 +279,30 @@ export const HomepageAudioPlayer = () => {
               ref={audioRef}
               //   src="/scratch.mp3"
               src={`/${music[songTrack].file}`}
-
-              // onTimeUpdate={timeUpdate}
-              // onDurationChange={durationHandler}
+              onTimeUpdate={timeUpdate}
+              onDurationChange={durationHandler}
             />
             <Box display="flex" flexDirection="row" justifySelf="flex-start">
-              <CoverImage>
-                <Image alt="can't win - Chilling Sunday" src={happyHourCover} />
-              </CoverImage>
+              <Image
+                width={215}
+                height={215}
+                style={{ borderRadius: "25px" }}
+                alt="can't win - Chilling Sunday"
+                src={happyHourCover}
+              />
+
               <Box sx={{ ml: 4, minWidth: 0, mt: 5 }}>
-                <Typography fontWeight={500} fontSize="1.125rem">
+                <Typography
+                  fontWeight={500}
+                  fontSize="1.125rem"
+                  className={roboto.className}
+                >
                   {music[songTrack].artist}
                 </Typography>
-                <Typography fontSize="1.125rem">
+                <Typography fontSize="1.125rem" className={roboto.className}>
                   <b> {music[songTrack].songName}</b>
                 </Typography>
-                <Typography fontSize="1.125rem">
+                <Typography fontSize="1.125rem" className={roboto.className}>
                   {music[songTrack].album}
                 </Typography>
               </Box>
@@ -229,8 +313,9 @@ export const HomepageAudioPlayer = () => {
               value={position}
               min={0}
               step={1}
-              max={playingTrackDuration}
-              onChange={(_, value) => setPosition(value as number)}
+              //   max={playingTrackDuration}
+              max={duration}
+              onChange={(_, value) => scrubTimeHandler(_, value as number)}
               sx={{
                 color: "rgba(0,0,0,0.87)",
                 height: 4,
@@ -266,9 +351,7 @@ export const HomepageAudioPlayer = () => {
               }}
             >
               <TinyText>{formatDuration(position)}</TinyText>
-              <TinyText>
-                -{formatDuration(playingTrackDuration - position)}
-              </TinyText>
+              <TinyText>-{formatDuration(duration - position)}</TinyText>
             </Box>
             <Box
               sx={{
@@ -336,26 +419,74 @@ export const HomepageAudioPlayer = () => {
           </Widget>
         </Grid2>
         <Grid2
-          md={4}
+          md={5}
           sx={{
             borderRadius: "25px",
-            backgroundColor: "rgba(235, 235, 235, 0.85)",
-            p: 4,
+            backgroundColor: "rgba(211, 207, 207, 0.3)",
+
+            alignSelf: "stretch",
+            height: "45vh",
           }}
         >
-          <Box>
+          <Box
+            sx={{
+              alignSelf: "stretch",
+              height: "100%",
+              overflow: "hidden",
+              overflowY: "auto",
+              scrollbarWidth: "thin",
+            }}
+          >
             {trackList.length > 1 &&
               trackList.map((song, index) => {
-                // console.log(song);
                 return (
                   <Grid2
                     key={song.songName + index}
                     container
+                    columnSpacing={1}
+                    rowSpacing={2}
                     justifyContent="space-around"
+                    pr={3}
+                    pt={1}
+                    onClick={() => songClickHandler(song.trackNum)}
+                    sx={{ cursor: "pointer" }}
                   >
-                    <Grid2 md={4}>{song.songName}</Grid2>
-                    <Grid2 md={4}>{song.album}</Grid2>
-                    <Grid2 md={4}>{song.duration}</Grid2>
+                    <Grid2
+                      md={1}
+                      display="flex"
+                      mt={0.35}
+                      justifyContent="center"
+                    >
+                      {music[songTrack].file === song.file && !paused ? (
+                        <VolumeUpRounded sx={{ fontSize: "1rem" }} />
+                      ) : (
+                        ""
+                      )}
+                    </Grid2>
+                    <Grid2 md={5}>
+                      <Typography
+                        fontSize=".875rem"
+                        className={roboto.className}
+                      >
+                        {song.songName}
+                      </Typography>
+                    </Grid2>
+                    <Grid2 md={4} sx={{ textAlign: "center" }}>
+                      <Typography
+                        fontSize=".875rem"
+                        className={roboto.className}
+                      >
+                        {song.album}
+                      </Typography>
+                    </Grid2>
+                    <Grid2 md={2} sx={{ textAlign: "right" }}>
+                      <Typography
+                        fontSize=".875rem"
+                        className={roboto.className}
+                      >
+                        {song.duration}
+                      </Typography>
+                    </Grid2>
                   </Grid2>
                 );
               })}
