@@ -14,17 +14,22 @@ import FastRewindRounded from "@mui/icons-material/FastRewindRounded";
 import VolumeUpRounded from "@mui/icons-material/VolumeUpRounded";
 import VolumeDownRounded from "@mui/icons-material/VolumeDownRounded";
 import Image from "next/image";
-import happyHourCover from "../../public/markbrownhappyhourcover.png";
-import uncleBuckleCover from "../../public/Unkle-Buckle-cover.jpg";
+import happyHourCover from "../../../public/markbrownhappyhourcover.png";
+import uncleBuckleCover from "../../../public/Unkle-Buckle-cover.jpg";
+import amazonIcon from "../../../public/icons/Amazon_Music_logo.svg";
+import appleMusicIcon from "../../../public/icons/applemusicicon.svg";
+import spotifyIcon from "../../../public/icons/spotify.svg";
+import pandoraIcon from "../../../public/icons/pandora-svgrepo-com.svg";
 
 import emotionStyled from "@emotion/styled";
-import { roboto } from "../app/fonts";
+import { roboto } from "../../app/fonts";
 
 import { music } from "@/data/music";
 import { Container, Grid } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { isPageStatic } from "next/dist/build/utils";
 import { Height } from "@mui/icons-material";
+import { TrackListItem } from "./trackListItem";
 const Widget = emotionStyled("div")(({ theme }) => ({
   //   padding: 16,
   borderRadius: "25px",
@@ -34,6 +39,7 @@ const Widget = emotionStyled("div")(({ theme }) => ({
   position: "relative",
   zIndex: 1,
   display: "flex",
+
   flexDirection: "column",
   alignContent: "center",
   justifyContent: "center",
@@ -52,12 +58,11 @@ export type track = {
   duration: string;
 };
 const CoverImage = styled("div")({
-  width: "215px",
-  height: "215px",
-  objectFit: "scale-down",
   overflow: "hidden",
   flexShrink: 0,
   borderRadius: 25,
+  position: "relative",
+
   //   backgroundColor: "rgba(0,0,0,0.08)",
   //   "& > img": {
   //     width: "100%",
@@ -65,10 +70,14 @@ const CoverImage = styled("div")({
 });
 
 const TinyText = styled(Typography)({
-  fontSize: "0.75rem",
+  fontSize: "0.95rem",
+  marginTop: "10px",
+  marginLeft: "10px",
+  marginRight: "10px",
   opacity: 0.38,
   fontWeight: 500,
   letterSpacing: 0.2,
+  color: "black",
 });
 
 export const HomepageAudioPlayer = () => {
@@ -90,6 +99,7 @@ export const HomepageAudioPlayer = () => {
     },
   ]);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const trackListItemRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function getTrackDuration(file: string) {
@@ -97,7 +107,7 @@ export const HomepageAudioPlayer = () => {
         const audio = document.createElement("audio");
         audio.muted = true;
         const source = document.createElement("source");
-        source.src = file;
+        source.src = "/music/" + file;
         audio.preload = "metadata";
         audio.appendChild(source);
         audio.onloadedmetadata = function () {
@@ -137,6 +147,7 @@ export const HomepageAudioPlayer = () => {
       audioRef.current.paused ? setIsPlaying(false) : setIsPlaying(true);
     }
     const track = songTrack == music.length - 1 ? 0 : songTrack + 1;
+
     setSongTrack(track);
   };
   const prevTrackHandler = () => {
@@ -151,11 +162,11 @@ export const HomepageAudioPlayer = () => {
     const track = songTrack == 0 ? music.length - 1 : songTrack - 1;
     setSongTrack(track);
 
-    if (audioRef.current) {
-      audioRef.current.paused
-        ? audioRef.current.play()
-        : audioRef.current.pause();
-    }
+    // if (audioRef.current) {
+    //   audioRef.current.paused
+    //     ? audioRef.current.play()
+    //     : audioRef.current.pause();
+    // }
   };
 
   useEffect(() => {
@@ -163,7 +174,7 @@ export const HomepageAudioPlayer = () => {
       audioRef.current.play();
       setIsPlaying(false);
     }
-  }, [isPlaying]);
+  }, [nextTrackHandler, prevTrackHandler]);
 
   useEffect(() => {
     if (
@@ -177,6 +188,16 @@ export const HomepageAudioPlayer = () => {
       };
     }
   });
+
+  useEffect(() => {
+    if (trackListItemRef.current) {
+      trackListItemRef.current.scrollIntoView({
+        block: "nearest",
+        inline: "nearest",
+        behavior: "smooth",
+      });
+    }
+  }, [songTrack]);
 
   const durationHandler = () => {
     if (audioRef.current) {
@@ -240,17 +261,21 @@ export const HomepageAudioPlayer = () => {
   return (
     <Container
       maxWidth={false}
-      sx={{ display: "flex", justifyContent: "center", background: "#27221D" }}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        background: "#27221D",
+        // height: { xs: "50vh", sm: "50vh", md: "25vh" },
+      }}
     >
       <Grid2
         container
         columnSpacing={3}
-        p={3}
-        px=""
         sx={{
           display: "flex",
           justifyContent: "space-between",
           maxWidth: "1230px",
+          padding: { xs: 1, sm: 3 },
           //   height: "527px",
           width: "100%",
           overflow: "hidden",
@@ -258,16 +283,19 @@ export const HomepageAudioPlayer = () => {
           marginTop: "-100px",
           position: "relative",
           //   maxHeight: "60vh",
-
+          // alignItems: "center",
+          flexWrap: "nowrap",
+          alignItems: "stretch",
           backgroundColor: "rgba(255, 255, 255, 0.93)",
           backdropFilter: "blur(40px)",
+          height: { xs: "50vh", sm: "50vh", md: "60vh" },
         }}
       >
         <Grid2
-          pr={5}
           xs={12}
-          md={7}
+          sm={7}
           sx={{
+            pr: { sm: 5 },
             display: "flex",
             alignContent: "flex-start",
             alignItems: "center",
@@ -278,24 +306,36 @@ export const HomepageAudioPlayer = () => {
             <audio
               ref={audioRef}
               //   src="/scratch.mp3"
-              src={`/${music[songTrack].file}`}
+              src={`/music/${music[songTrack].file}`}
               onTimeUpdate={timeUpdate}
               onDurationChange={durationHandler}
             />
             <Box display="flex" flexDirection="row" justifySelf="flex-start">
-              <Image
-                width={215}
-                height={215}
-                style={{ borderRadius: "25px" }}
-                alt="can't win - Chilling Sunday"
-                src={happyHourCover}
-              />
+              <CoverImage
+                sx={{
+                  width: { xs: "150px", md: "200px" },
+                  height: { xs: "150px", md: "200px" },
+                }}
+              >
+                <Image
+                  // width={200}
+                  // height={200}
+                  // width={0}
+                  // height={0}
+
+                  fill
+                  // style={{ borderRadius: "25px" }}
+                  style={{ objectFit: "contain" }}
+                  alt="can't win - Chilling Sunday"
+                  src={happyHourCover}
+                />
+              </CoverImage>
 
               <Box sx={{ ml: 4, minWidth: 0, mt: 5 }}>
                 <Typography
-                  fontWeight={500}
-                  fontSize="1.125rem"
+                  fontWeight={400}
                   className={roboto.className}
+                  sx={{ fontSize: { xs: "1rem", sm: "1.125rem" } }}
                 >
                   {music[songTrack].artist}
                 </Typography>
@@ -313,7 +353,6 @@ export const HomepageAudioPlayer = () => {
               value={position}
               min={0}
               step={1}
-              //   max={playingTrackDuration}
               max={duration}
               onChange={(_, value) => scrubTimeHandler(_, value as number)}
               sx={{
@@ -396,6 +435,7 @@ export const HomepageAudioPlayer = () => {
                 aria-label="Volume"
                 onChange={volumeHandler}
                 defaultValue={30}
+                value={volume}
                 sx={{
                   color: "rgba(0,0,0,0.87)",
                   "& .MuiSlider-track": {
@@ -416,79 +456,137 @@ export const HomepageAudioPlayer = () => {
               />
               <VolumeUpRounded />
             </Stack>
+            <Stack
+              direction="row"
+              spacing={2}
+              my={3}
+              justifyContent="center"
+              alignContent="center"
+            >
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <IconButton
+                  target="_blank"
+                  href="https://music.apple.com/us/album/uncle-buckle/195623163"
+                >
+                  <Image
+                    width={35}
+                    src={appleMusicIcon}
+                    alt="apple music icon"
+                  />
+                </IconButton>
+              </Box>
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <IconButton
+                  target="_blank"
+                  href="https://www.amazon.com/music/player/albums/B0016QA3GI?_encoding=UTF8&qid=&sr="
+                >
+                  <Image width={35} src={amazonIcon} alt="amazon music icon" />
+                </IconButton>
+              </Box>
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <IconButton
+                  target="_blank"
+                  href="https://open.spotify.com/album/0UFbKN0AsYXIKkmPM1rOl2"
+                >
+                  <Image width={35} src={spotifyIcon} alt="spotify icon" />
+                </IconButton>
+              </Box>{" "}
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <IconButton
+                  target="_blank"
+                  href="https://www.pandora.com/artist/mark-brown/uncle-buckle/ALfPK7fqKsmZ7p2"
+                >
+                  <Image width={35} src={pandoraIcon} alt="pandora icon" />
+                </IconButton>
+              </Box>
+            </Stack>
           </Widget>
         </Grid2>
         <Grid2
-          md={5}
+          sm={5}
           sx={{
+            display: { xs: "none", sm: "flex" },
             borderRadius: "25px",
             backgroundColor: "rgba(211, 207, 207, 0.3)",
-
             alignSelf: "stretch",
-            height: "45vh",
+            alignContent: "center",
+            // height: { xs: "50vh", sm: "30vh", md: "25vh" },
           }}
         >
           <Box
             sx={{
-              alignSelf: "stretch",
-              height: "100%",
+              alignItems: "stretch",
+              // height: "100%",
+
               overflow: "hidden",
               overflowY: "auto",
               scrollbarWidth: "thin",
+              width: "100%",
             }}
           >
             {trackList.length > 1 &&
-              trackList.map((song, index) => {
+              trackList.map((song) => {
                 return (
-                  <Grid2
-                    key={song.songName + index}
-                    container
-                    columnSpacing={1}
-                    rowSpacing={2}
-                    justifyContent="space-around"
-                    pr={3}
-                    pt={1}
-                    onClick={() => songClickHandler(song.trackNum)}
-                    sx={{ cursor: "pointer" }}
-                  >
-                    <Grid2
-                      md={1}
-                      display="flex"
-                      mt={0.35}
-                      justifyContent="center"
-                    >
-                      {music[songTrack].file === song.file && !paused ? (
-                        <VolumeUpRounded sx={{ fontSize: "1rem" }} />
-                      ) : (
-                        ""
-                      )}
-                    </Grid2>
-                    <Grid2 md={5}>
-                      <Typography
-                        fontSize=".875rem"
-                        className={roboto.className}
-                      >
-                        {song.songName}
-                      </Typography>
-                    </Grid2>
-                    <Grid2 md={4} sx={{ textAlign: "center" }}>
-                      <Typography
-                        fontSize=".875rem"
-                        className={roboto.className}
-                      >
-                        {song.album}
-                      </Typography>
-                    </Grid2>
-                    <Grid2 md={2} sx={{ textAlign: "right" }}>
-                      <Typography
-                        fontSize=".875rem"
-                        className={roboto.className}
-                      >
-                        {song.duration}
-                      </Typography>
-                    </Grid2>
-                  </Grid2>
+                  <TrackListItem
+                    key={song.songName + song.trackNum}
+                    track={song}
+                    trackPlaying={
+                      music[songTrack].file === song.file && !paused
+                        ? true
+                        : false
+                    }
+                    currentTrack={songTrack == song.trackNum - 1}
+                    ref={trackListItemRef}
+                  />
                 );
+                // <Grid2
+                //   key={song.songName + index}
+                //   container
+                //   columnSpacing={1}
+                //   rowSpacing={2}
+                //   justifyContent="space-around"
+                //   pr={3}
+                //   pt={1}
+                //   onClick={() => songClickHandler(song.trackNum)}
+                //   sx={{ cursor: "pointer" }}
+                // >
+                //   <Grid2
+                //     sm={1}
+                //     display="flex"
+                //     mt={0.25}
+                //     justifyContent="center"
+                //   >
+                //     {music[songTrack].file === song.file && !paused ? (
+                //       <VolumeUpRounded sx={{ fontSize: "1.25rem" }} />
+                //     ) : (
+                //       ""
+                //     )}
+                //   </Grid2>
+                //   <Grid2 sm={5}>
+                //     <Typography
+                //       fontSize=".875rem"
+                //       className={roboto.className}
+                //     >
+                //       {song.songName}
+                //     </Typography>
+                //   </Grid2>
+                //   <Grid2 sm={4} sx={{ textAlign: "center" }}>
+                //     <Typography
+                //       fontSize=".875rem"
+                //       className={roboto.className}
+                //     >
+                //       {song.album}
+                //     </Typography>
+                //   </Grid2>
+                //   <Grid2 sm={2} sx={{ textAlign: "right" }}>
+                //     <Typography
+                //       fontSize=".875rem"
+                //       className={roboto.className}
+                //     >
+                //       {song.duration}
+                //     </Typography>
+                //   </Grid2>
+                // </Grid2>
               })}
           </Box>
         </Grid2>

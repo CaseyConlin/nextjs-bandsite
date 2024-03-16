@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 // import { Inter } from "next/font/google";
 // import { roboto, blackHanSans } from "./fonts";
 import { Black_Han_Sans } from "next/font/google";
@@ -35,6 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
       <body>
         <NavBar />
         {children}

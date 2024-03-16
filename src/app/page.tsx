@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 import { HomepageHero } from "@/components/HomepageHero";
 import { HomepageTextSection } from "@/components/HomepageTextSection";
 import { HomepageVideo } from "@/components/HomepageVideoPlayer";
-import { HomepageAudioPlayer } from "@/components/HomepageAudioPlayer";
+import { HomepageAudioPlayer } from "@/components/audioplayer/HomepageAudioPlayer";
 
 const Home = () => {
   return (

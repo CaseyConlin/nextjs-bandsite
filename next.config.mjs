@@ -29,6 +29,8 @@ export const exports = {
       {
         source: "/(.*)",
         headers: [
+          // {key:
+          // value:},
           {
             key: "Content-Security-Policy",
             value: cspHeader.replace(/\n/g, ""),
