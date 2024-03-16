@@ -10,10 +10,11 @@ type TrackListProps = {
   track: track;
   trackPlaying: boolean;
   currentTrack: boolean;
+  onclick: (track: number) => void;
 };
 
 export const TrackListItem = forwardRef(function TrackListItem(
-  { track, trackPlaying, currentTrack }: TrackListProps,
+  { track, trackPlaying, currentTrack, onclick }: TrackListProps,
   ref
 ) {
   return (
@@ -24,7 +25,7 @@ export const TrackListItem = forwardRef(function TrackListItem(
       justifyContent="space-around"
       alignItems="center"
       pr={3}
-      //   onClick={() => songClickHandler(track.trackNum)}
+      onClick={() => onclick(track.trackNum)}
       sx={{
         cursor: "pointer",
       }}

@@ -288,7 +288,7 @@ export const HomepageAudioPlayer = () => {
           alignItems: "stretch",
           backgroundColor: "rgba(255, 255, 255, 0.93)",
           backdropFilter: "blur(40px)",
-          height: { xs: "50vh", sm: "50vh", md: "60vh" },
+          height: { xs: "60vh", sm: "40vh", md: "60vh" },
         }}
       >
         <Grid2
@@ -427,7 +427,13 @@ export const HomepageAudioPlayer = () => {
               alignSelf="center"
               spacing={2}
               direction="row"
-              sx={{ mb: 1, px: 1, maxWidth: 350, width: "100%" }}
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                mb: 1,
+                px: 1,
+                maxWidth: 350,
+                width: "100%",
+              }}
               alignItems="center"
             >
               <VolumeDownRounded />
@@ -536,6 +542,7 @@ export const HomepageAudioPlayer = () => {
                         : false
                     }
                     currentTrack={songTrack == song.trackNum - 1}
+                    onclick={songClickHandler}
                     ref={trackListItemRef}
                   />
                 );
