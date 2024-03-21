@@ -1,4 +1,4 @@
-import { VideoPageHeaderProps } from "@/components/VideoPageHeader";
+import { ChannelDataType } from "@/app/videos/page";
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 const apiUrl = "https://www.googleapis.com/youtube/v3";
 const channelID = "UCJzQ4krap2qE6JBMbS_IRmg";
@@ -6,21 +6,20 @@ const playlistID = "UUJzQ4krap2qE6JBMbS_IRmg";
 // const playlistID = "UUpRmvjdu3ixew5ahydZ67uA";
 // const playlistID = "UU6lim77xHQQ9Tio9e_ydxEw"; //test channelID with addtional videos
 
-export const fetchVideoChannelInfo =
-  async (): Promise<VideoPageHeaderProps> => {
-    const response = await fetch(
-      `${apiUrl}/channels?part=snippet&id=${channelID}&key=${apiKey}`
-    );
-    const data = await response.json();
+export const fetchVideoChannelInfo = async (): Promise<ChannelDataType> => {
+  const response = await fetch(
+    `${apiUrl}/channels?part=snippet&id=${channelID}&key=${apiKey}`
+  );
+  const data = await response.json();
 
-    const dataItemSnippet = data.items[0].snippet;
-    const profileData = {
-      profileTitle: dataItemSnippet.title,
-      profileImage: dataItemSnippet.thumbnails.medium.url,
-    };
-
-    return profileData;
+  const dataItemSnippet = data.items[0].snippet;
+  const profileData = {
+    profileTitle: dataItemSnippet.title,
+    profileImage: dataItemSnippet.thumbnails.medium.url,
   };
+
+  return profileData;
+};
 
 export const fetchVideosByChannelID = async () => {
   const videoList: VideoPlayerProps[] = [];

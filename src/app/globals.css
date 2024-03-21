@@ -81,15 +81,8 @@
 
 html,
 body {
-  /* max-width: 100vw; */
-  /* overflow-x: hidden; */
-  /* Uncle Buckle Videos Page */
-
-  /* Uncle Buckle Videos Page */
-
+  max-width: 100vw;
   position: relative;
-  /* width: 1440px;
-  height: 3525px; */
 
   background: linear-gradient(
       to bottom,

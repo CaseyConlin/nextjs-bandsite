@@ -1,35 +1,20 @@
-"use client"; // This is a client component 👈🏽
-import * as React from "react";
-import { useState, useRef, useEffect, useCallback, ChangeEvent } from "react";
-import { styled, useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Slider from "@mui/material/Slider";
-import IconButton from "@mui/material/IconButton";
-import Stack from "@mui/material/Stack";
-import PauseRounded from "@mui/icons-material/PauseRounded";
-import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
-import FastForwardRounded from "@mui/icons-material/FastForwardRounded";
-import FastRewindRounded from "@mui/icons-material/FastRewindRounded";
-import VolumeUpRounded from "@mui/icons-material/VolumeUpRounded";
-import VolumeDownRounded from "@mui/icons-material/VolumeDownRounded";
-import Image from "next/image";
-import happyHourCover from "../../../public/markbrownhappyhourcover.png";
-import uncleBuckleCover from "../../../public/Unkle-Buckle-cover.jpg";
-import amazonIcon from "../../../public/icons/Amazon_Music_logo.svg";
-import appleMusicIcon from "../../../public/icons/applemusicicon.svg";
-import spotifyIcon from "../../../public/icons/spotify.svg";
-import pandoraIcon from "../../../public/icons/pandora-svgrepo-com.svg";
+"use client";
 
+import { useState, useRef, useEffect, useCallback, ChangeEvent } from "react";
 import emotionStyled from "@emotion/styled";
-import { roboto } from "../../app/fonts";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
 import { music } from "@/data/music";
-import { Container, Grid } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-import { isPageStatic } from "next/dist/build/utils";
-import { Height } from "@mui/icons-material";
+
 import { TrackListItem } from "./trackListItem";
+import { StreamingStack } from "../ui/StreamingStack";
+import { VolumeControl } from "./VolumeControl";
+import { TimeControl } from "./TimeControl";
+import { TrackControls } from "./TrackControls";
+import { TrackInfoContainer } from "./TrackInfoContainer";
+
 const Widget = emotionStyled("div")(({ theme }) => ({
   //   padding: 16,
   borderRadius: "25px",
@@ -57,35 +42,13 @@ export type track = {
   file: string;
   duration: string;
 };
-const CoverImage = styled("div")({
-  overflow: "hidden",
-  flexShrink: 0,
-  borderRadius: 25,
-  position: "relative",
-
-  //   backgroundColor: "rgba(0,0,0,0.08)",
-  //   "& > img": {
-  //     width: "100%",
-  //   },
-});
-
-const TinyText = styled(Typography)({
-  fontSize: "0.95rem",
-  marginTop: "10px",
-  marginLeft: "10px",
-  marginRight: "10px",
-  opacity: 0.38,
-  fontWeight: 500,
-  letterSpacing: 0.2,
-  color: "black",
-});
 
 export const HomepageAudioPlayer = () => {
-  const [albumImage, setAlbumImage] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [position, setPosition] = useState(0);
-
+  const [paused, setPaused] = useState(true);
+  const [volume, setVolume] = useState(50);
   const [songTrack, setSongTrack] = useState(0);
   const [trackList, setTrackList] = useState([
     {
@@ -98,11 +61,12 @@ export const HomepageAudioPlayer = () => {
       duration: "0",
     },
   ]);
+
   const audioRef = useRef<HTMLAudioElement>(null);
   const trackListItemRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    async function getTrackDuration(file: string) {
+    const getTrackDuration = async (file: string) => {
       return new Promise((resolve) => {
         const audio = document.createElement("audio");
         audio.muted = true;
@@ -114,9 +78,9 @@ export const HomepageAudioPlayer = () => {
           resolve(audio.duration);
         };
       });
-    }
+    };
 
-    async function setDurations() {
+    const setDurations = async () => {
       let promises = music.map(async (song) => {
         return getTrackDuration(song.file).then((dur: any) => {
           song.duration = formatDuration(Number(dur));
@@ -124,8 +88,9 @@ export const HomepageAudioPlayer = () => {
       });
       Promise.all(promises).then(() => {
         setTrackList(music);
+        return music;
       });
-    }
+    };
 
     setDurations();
     durationHandler();
@@ -216,8 +181,6 @@ export const HomepageAudioPlayer = () => {
   );
 
   const scrubTimeHandler = (_: Event, newValue: number | number[]) => {
-    // event;
-    console.log(newValue);
     if (typeof newValue === "number") {
       setPosition(newValue);
 
@@ -238,8 +201,6 @@ export const HomepageAudioPlayer = () => {
 
   //   const playingTrackDuration = 200; // seconds
   //   const [position, setPosition] = React.useState(32);
-  const [paused, setPaused] = useState(true);
-  const [volume, setVolume] = useState(50);
 
   function formatDuration(value: number) {
     const minute = Math.floor(value / 60);
@@ -247,9 +208,8 @@ export const HomepageAudioPlayer = () => {
     return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
   }
 
-  const volumeHandler = (event: Event, newValue: number | number[]) => {
+  const volumeHandler = (_: Event, newValue: number | number[]) => {
     if (typeof newValue === "number") {
-      event;
       setVolume(newValue);
 
       if (audioRef.current) {
@@ -268,7 +228,7 @@ export const HomepageAudioPlayer = () => {
         // height: { xs: "50vh", sm: "50vh", md: "25vh" },
       }}
     >
-      <Grid2
+      <Grid
         container
         columnSpacing={3}
         sx={{
@@ -291,7 +251,7 @@ export const HomepageAudioPlayer = () => {
           height: { xs: "60vh", sm: "40vh", md: "60vh" },
         }}
       >
-        <Grid2
+        <Grid
           xs={12}
           sm={7}
           sx={{
@@ -305,209 +265,33 @@ export const HomepageAudioPlayer = () => {
           <Widget>
             <audio
               ref={audioRef}
-              //   src="/scratch.mp3"
               src={`/music/${music[songTrack].file}`}
               onTimeUpdate={timeUpdate}
               onDurationChange={durationHandler}
             />
-            <Box display="flex" flexDirection="row" justifySelf="flex-start">
-              <CoverImage
-                sx={{
-                  width: { xs: "150px", md: "200px" },
-                  height: { xs: "150px", md: "200px" },
-                }}
-              >
-                <Image
-                  // width={200}
-                  // height={200}
-                  // width={0}
-                  // height={0}
-
-                  fill
-                  // style={{ borderRadius: "25px" }}
-                  style={{ objectFit: "contain" }}
-                  alt="can't win - Chilling Sunday"
-                  src={happyHourCover}
-                />
-              </CoverImage>
-
-              <Box sx={{ ml: 4, minWidth: 0, mt: 5 }}>
-                <Typography
-                  fontWeight={400}
-                  sx={{ fontSize: { xs: "1rem", sm: "1.125rem" } }}
-                >
-                  {music[songTrack].artist}
-                </Typography>
-                <Typography fontSize="1.125rem">
-                  <b> {music[songTrack].songName}</b>
-                </Typography>
-                <Typography fontSize="1.125rem">
-                  {music[songTrack].album}
-                </Typography>
-              </Box>
-            </Box>
-            <Slider
-              aria-label="time-indicator"
-              size="small"
-              value={position}
-              min={0}
-              step={1}
-              max={duration}
-              onChange={(_, value) => scrubTimeHandler(_, value as number)}
-              sx={{
-                color: "rgba(0,0,0,0.87)",
-                height: 4,
-
-                "& .MuiSlider-thumb": {
-                  pointerEvents: "none",
-
-                  width: 8,
-                  height: 8,
-                  transition: "0.3s cubic-bezier(.47,1.64,.41,.8)",
-                  "&::before": {
-                    boxShadow: "0 2px 12px 0 rgba(0,0,0,0.4)",
-                  },
-                  "&:hover, &.Mui-focusVisible": {
-                    boxShadow: `0px 0px 0px 8px ${"rgb(0 0 0 / 16%)"}`,
-                  },
-                  "&.Mui-active": {
-                    width: 20,
-                    height: 20,
-                  },
-                },
-                "& .MuiSlider-rail": {
-                  opacity: 0.28,
-                },
-              }}
+            <TrackInfoContainer
+              trackArtist={music[songTrack].artist}
+              trackName={music[songTrack].songName}
+              trackAlbum={music[songTrack].album}
+              trackAlbumImage={music[songTrack].albumCover}
             />
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                mt: -2,
-              }}
-            >
-              <TinyText>{formatDuration(position)}</TinyText>
-              <TinyText>-{formatDuration(duration - position)}</TinyText>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                mt: -1,
-              }}
-            >
-              <IconButton
-                aria-label="previous song"
-                onClick={() => prevTrackHandler()}
-              >
-                <FastRewindRounded fontSize="large" sx={{ fill: "black" }} />
-              </IconButton>
-              <IconButton
-                aria-label={paused ? "play" : "pause"}
-                onClick={() => playPauseHandler()}
-              >
-                {paused ? (
-                  <PlayArrowRounded sx={{ fontSize: "3rem", fill: "black" }} />
-                ) : (
-                  <PauseRounded sx={{ fontSize: "3rem", fill: "black" }} />
-                )}
-              </IconButton>
-              <IconButton
-                aria-label="next song"
-                onClick={() => nextTrackHandler()}
-              >
-                <FastForwardRounded fontSize="large" sx={{ fill: "black" }} />
-              </IconButton>
-            </Box>
-            <Stack
-              alignSelf="center"
-              spacing={2}
-              direction="row"
-              sx={{
-                display: { xs: "none", sm: "flex" },
-                mb: 1,
-                px: 1,
-                maxWidth: 350,
-                width: "100%",
-              }}
-              alignItems="center"
-            >
-              <VolumeDownRounded />
-              <Slider
-                aria-label="Volume"
-                onChange={volumeHandler}
-                defaultValue={30}
-                value={volume}
-                sx={{
-                  color: "rgba(0,0,0,0.87)",
-                  "& .MuiSlider-track": {
-                    border: "none",
-                  },
-                  "& .MuiSlider-thumb": {
-                    width: 24,
-                    height: 24,
-                    backgroundColor: "#fff",
-                    "&::before": {
-                      boxShadow: "0 4px 8px rgba(0,0,0,0.4)",
-                    },
-                    "&:hover, &.Mui-focusVisible, &.Mui-active": {
-                      boxShadow: "none",
-                    },
-                  },
-                }}
-              />
-              <VolumeUpRounded />
-            </Stack>
-            <Stack
-              direction="row"
-              spacing={2}
-              my={3}
-              justifyContent="center"
-              alignContent="center"
-            >
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <IconButton
-                  target="_blank"
-                  href="https://music.apple.com/us/album/uncle-buckle/195623163"
-                >
-                  <Image
-                    width={35}
-                    src={appleMusicIcon}
-                    alt="apple music icon"
-                  />
-                </IconButton>
-              </Box>
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <IconButton
-                  target="_blank"
-                  href="https://www.amazon.com/music/player/albums/B0016QA3GI?_encoding=UTF8&qid=&sr="
-                >
-                  <Image width={35} src={amazonIcon} alt="amazon music icon" />
-                </IconButton>
-              </Box>
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <IconButton
-                  target="_blank"
-                  href="https://open.spotify.com/album/0UFbKN0AsYXIKkmPM1rOl2"
-                >
-                  <Image width={35} src={spotifyIcon} alt="spotify icon" />
-                </IconButton>
-              </Box>{" "}
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <IconButton
-                  target="_blank"
-                  href="https://www.pandora.com/artist/mark-brown/uncle-buckle/ALfPK7fqKsmZ7p2"
-                >
-                  <Image width={35} src={pandoraIcon} alt="pandora icon" />
-                </IconButton>
-              </Box>
-            </Stack>
+            <TrackControls
+              paused={paused}
+              playPauseHandler={playPauseHandler}
+              prevTrackHandler={prevTrackHandler}
+              nextTrackHandler={nextTrackHandler}
+            />
+            <TimeControl
+              position={position}
+              duration={duration}
+              formatDuration={formatDuration}
+              scrubTimeHandler={scrubTimeHandler}
+            />
+            <VolumeControl volumeValue={volume} volumeHandler={volumeHandler} />
+            <StreamingStack />
           </Widget>
-        </Grid2>
-        <Grid2
+        </Grid>
+        <Grid
           sm={5}
           sx={{
             display: { xs: "none", sm: "flex" },
@@ -522,7 +306,6 @@ export const HomepageAudioPlayer = () => {
             sx={{
               alignItems: "stretch",
               // height: "100%",
-
               overflow: "hidden",
               overflowY: "auto",
               scrollbarWidth: "thin",
@@ -545,58 +328,10 @@ export const HomepageAudioPlayer = () => {
                     ref={trackListItemRef}
                   />
                 );
-                // <Grid2
-                //   key={song.songName + index}
-                //   container
-                //   columnSpacing={1}
-                //   rowSpacing={2}
-                //   justifyContent="space-around"
-                //   pr={3}
-                //   pt={1}
-                //   onClick={() => songClickHandler(song.trackNum)}
-                //   sx={{ cursor: "pointer" }}
-                // >
-                //   <Grid2
-                //     sm={1}
-                //     display="flex"
-                //     mt={0.25}
-                //     justifyContent="center"
-                //   >
-                //     {music[songTrack].file === song.file && !paused ? (
-                //       <VolumeUpRounded sx={{ fontSize: "1.25rem" }} />
-                //     ) : (
-                //       ""
-                //     )}
-                //   </Grid2>
-                //   <Grid2 sm={5}>
-                //     <Typography
-                //       fontSize=".875rem"
-                //
-                //     >
-                //       {song.songName}
-                //     </Typography>
-                //   </Grid2>
-                //   <Grid2 sm={4} sx={{ textAlign: "center" }}>
-                //     <Typography
-                //       fontSize=".875rem"
-                //
-                //     >
-                //       {song.album}
-                //     </Typography>
-                //   </Grid2>
-                //   <Grid2 sm={2} sx={{ textAlign: "right" }}>
-                //     <Typography
-                //       fontSize=".875rem"
-                //
-                //     >
-                //       {song.duration}
-                //     </Typography>
-                //   </Grid2>
-                // </Grid2>
               })}
           </Box>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </Container>
   );
 };

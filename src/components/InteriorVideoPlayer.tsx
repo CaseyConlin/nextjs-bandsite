@@ -19,10 +19,11 @@ export const InteriorVideoCard = ({
           aspectRatio: "16 / 9",
           borderRadius: "25px",
           // width: { md: "45vw" },
-          padding: 2,
+          padding: { xs: 1, md: 2 },
         }}
         title={title}
         src={source}
+        allow="fullscreen"
       />
       <CardContent sx={{ padding: 2 }}>
         <Typography variant="accent">{title}</Typography>
