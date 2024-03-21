@@ -1,8 +1,17 @@
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "../theme";
 import type { Metadata } from "next";
 import Head from "next/head";
+
+import "./globals.css";
+import NavBar from "@/components/NavBar";
+import { ContactFooter } from "@/components/ContactFooter";
+import { Footer } from "@/components/Footer";
 // import { Inter } from "next/font/google";
 // import { roboto, blackHanSans } from "./fonts";
-import { Black_Han_Sans } from "next/font/google";
+// import { Black_Han_Sans } from "next/font/google";
 
 // export const roboto = Roboto({
 //   weight: ["400", "500", "700", "900"],
@@ -10,17 +19,12 @@ import { Black_Han_Sans } from "next/font/google";
 //   // display: "block",
 //   // preload: false,
 // });
-const blackHanSans = Black_Han_Sans({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  // preload: false,
-});
-
-import "./globals.css";
-import NavBar from "@/components/NavBar";
-import { ContactFooter } from "@/components/ContactFooter";
-import { Footer } from "@/components/Footer";
+// const blackHanSans = Black_Han_Sans({
+//   weight: "400",
+//   subsets: ["latin"],
+//   display: "swap",
+//   // preload: false,
+// });
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -40,10 +44,14 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <body>
-        <NavBar />
-        {children}
-        <ContactFooter />
-        <Footer />
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <NavBar />
+            {children}
+            <ContactFooter />
+            <Footer />
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

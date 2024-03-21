@@ -1,12 +1,16 @@
+"use client";
+import { usePathname } from "next/navigation";
+
 import { Box, Container, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import EmailIcon from "@mui/icons-material/Email";
 import { YouTube } from "@mui/icons-material";
-import { blackHanSans, roboto } from "../app/fonts";
+// import { blackHanSans, roboto } from "../app/fonts";
 
 export const ContactFooter = () => {
+  const pathName = usePathname();
   return (
     <Container
       maxWidth={false}
@@ -15,7 +19,8 @@ export const ContactFooter = () => {
         flexDirection: "column",
         alignItems: "center",
         padding: "5rem",
-        bgcolor: "black",
+        bgcolor: pathName === "/" ? "#27221D" : "transparent",
+
         // width: "100vw",
       }}
     >
@@ -23,7 +28,7 @@ export const ContactFooter = () => {
         <Box>
           <Typography
             component={"h3"}
-            className={blackHanSans.className}
+            variant="accent"
             // fontFamily={"Black Han Sans"}
             fontSize={"1.5rem"}
             color={"#E2B164"}
@@ -37,7 +42,6 @@ export const ContactFooter = () => {
         <Box>
           <Typography
             component="p"
-            className={roboto.className}
             fontSize={"1rem"}
             fontWeight="600"
             color="white"
@@ -55,22 +59,22 @@ export const ContactFooter = () => {
             justifyContent="center"
             alignItems="center"
             color="#E2B164"
-            className={roboto.className}
             fontWeight="900"
             fontSize="1.125rem"
             sx={{ letterSpacing: ".125rem" }}
           >
             <PhoneIphoneIcon sx={{ fill: "#E2B164", fontSize: "2rem" }} />{" "}
-            <a target="_blank" href="tel:845-616-0579">
-              845 616 0579
-            </a>
+            <Typography variant="accent">
+              <a target="_blank" href="tel:845-616-0579">
+                845 616 0579
+              </a>
+            </Typography>
           </Box>
           <Box
             display="flex"
             justifyContent="center"
             alignItems="center"
             color="#E2B164"
-            className={roboto.className}
             fontWeight="900"
             fontSize="1.125rem"
             sx={{ letterSpacing: ".125rem" }}
@@ -78,9 +82,11 @@ export const ContactFooter = () => {
             <EmailIcon
               sx={{ fill: "#E2B164", fontSize: "2rem", marginRight: ".5rem" }}
             />
-            <a target="_blank" href="mailto:mark@unclebuckle.com">
-              mark@unclebuckle.com
-            </a>
+            <Typography variant="accent">
+              <a target="_blank" href="mailto:mark@unclebuckle.com">
+                mark@unclebuckle.com
+              </a>
+            </Typography>
           </Box>
         </Box>
         <Box

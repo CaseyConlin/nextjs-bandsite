@@ -99,7 +99,13 @@ const Home = () => {
           </p>
         </a>
       </div> */}
-        <HomepageVideo />
+        <HomepageVideo
+          title={"Acetone"}
+          source={"https://www.youtube.com/embed/T7yoIB4v8UM"}
+          description={
+            "This is from a show we did on the lawn at the Rosendale Cafe last summer. I&apos;m playing along with John Hughes, Ken McGloin and Dean Jones- its always been a pleasure for us to play at our home town venue..."
+          }
+        />
       </main>
     </>
   );

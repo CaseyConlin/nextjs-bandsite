@@ -1,4 +1,7 @@
-"use client"; // This is a client component 👈🏽
+"use client";
+
+import { usePathname } from "next/navigation";
+
 import { useState, MouseEvent } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -37,13 +40,13 @@ function NavBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  const pathName = usePathname();
   return (
     <AppBar
       position="absolute"
       sx={{
         mt: 5,
-        bgcolor: "transparent",
+        bgcolor: pathName === "/" ? "transparent" : "rgba(0,0,0,50%)",
         boxShadow: "none",
       }}
     >
@@ -75,11 +78,10 @@ function NavBar() {
           </Typography> */}
           {/* Mobile */}
           <Typography
-            variant="h5"
-            className={blackHanSans.className}
+            variant="accent"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               //   mr: 2,
               display: { xs: "flex", md: "none" },
@@ -183,10 +185,10 @@ function NavBar() {
             >
               <Typography
                 className={blackHanSans.className}
-                variant="h6"
+                variant="accent"
                 noWrap
                 component="a"
-                href="#app-bar-with-responsive-menu"
+                href="/"
                 sx={{
                   display: {
                     xs: "none",

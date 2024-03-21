@@ -86,8 +86,7 @@ export const Footer = () => {
               }}
             >
               <Typography
-                variant="h6"
-                className={blackHanSans.className}
+                variant="accent"
                 noWrap
                 component="a"
                 href="#app-bar-with-responsive-menu"
@@ -117,6 +116,7 @@ export const Footer = () => {
               {pagesRight.map((page) => (
                 <Button
                   key={page}
+                  variant="accent"
                   className={blackHanSans.className}
                   sx={{
                     fontSize: "1.125rem",
@@ -157,7 +157,7 @@ export const Footer = () => {
         </Grid>
         <Grid
           mt={15}
-          className={blackHanSans.className}
+          // className={blackHanSans.className}
           sx={{
             display: "flex",
             letterSpacing: ".175rem",
@@ -175,7 +175,10 @@ export const Footer = () => {
             href="https://parkcrestdesign.com"
             aria-label="parkcrest design link"
           >
-            Website by Parkcrest Design
+            <Typography variant="accent">
+              {" "}
+              Website by Parkcrest Design
+            </Typography>
           </Link>
         </Grid>
       </Grid>

@@ -23,20 +23,24 @@ const cspHeader = `
     frame-src youtube.com https://www.youtube.com;
 `;
 
-export const exports = {
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          // {key:
-          // value:},
-          {
-            key: "Content-Security-Policy",
-            value: cspHeader.replace(/\n/g, ""),
-          },
-        ],
-      },
-    ];
-  },
-};
+// export const exports = {
+//   // images: {
+//   //   deviceSizes: [600, 900, 1200, 1536],
+//   // },
+
+//   async headers() {
+//     return [
+//       {
+//         source: "/(.*)",
+//         headers: [
+//           // {key:
+//           // value:},
+//           {
+//             key: "Content-Security-Policy",
+//             value: cspHeader.replace(/\n/g, ""),
+//           },
+//         ],
+//       },
+//     ];
+//   },
+// };

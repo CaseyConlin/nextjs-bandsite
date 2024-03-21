@@ -334,15 +334,14 @@ export const HomepageAudioPlayer = () => {
               <Box sx={{ ml: 4, minWidth: 0, mt: 5 }}>
                 <Typography
                   fontWeight={400}
-                  className={roboto.className}
                   sx={{ fontSize: { xs: "1rem", sm: "1.125rem" } }}
                 >
                   {music[songTrack].artist}
                 </Typography>
-                <Typography fontSize="1.125rem" className={roboto.className}>
+                <Typography fontSize="1.125rem">
                   <b> {music[songTrack].songName}</b>
                 </Typography>
-                <Typography fontSize="1.125rem" className={roboto.className}>
+                <Typography fontSize="1.125rem">
                   {music[songTrack].album}
                 </Typography>
               </Box>
@@ -572,7 +571,7 @@ export const HomepageAudioPlayer = () => {
                 //   <Grid2 sm={5}>
                 //     <Typography
                 //       fontSize=".875rem"
-                //       className={roboto.className}
+                //
                 //     >
                 //       {song.songName}
                 //     </Typography>
@@ -580,7 +579,7 @@ export const HomepageAudioPlayer = () => {
                 //   <Grid2 sm={4} sx={{ textAlign: "center" }}>
                 //     <Typography
                 //       fontSize=".875rem"
-                //       className={roboto.className}
+                //
                 //     >
                 //       {song.album}
                 //     </Typography>
@@ -588,7 +587,7 @@ export const HomepageAudioPlayer = () => {
                 //   <Grid2 sm={2} sx={{ textAlign: "right" }}>
                 //     <Typography
                 //       fontSize=".875rem"
-                //       className={roboto.className}
+                //
                 //     >
                 //       {song.duration}
                 //     </Typography>

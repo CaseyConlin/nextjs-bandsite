@@ -19,7 +19,7 @@ export const HomepageTextSection = () => {
       <Box maxWidth={"md"}>
         <Typography
           component="h1"
-          className={blackHanSans.className}
+          variant="accent"
           sx={{
             color: "#E2B164",
             // fontFamily: "Black Han Sans",
@@ -31,7 +31,6 @@ export const HomepageTextSection = () => {
         </Typography>
         <Typography
           mt="1rem"
-          className={roboto.className}
           component="p"
           sx={{
             // fontFamily: "Roboto",

@@ -6,7 +6,17 @@ import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import { blackHanSans, roboto } from "@/app/fonts";
 
-export const HomepageVideo = () => {
+// export type VideoPlayerProps = {
+//   source: string;
+//   title: string;
+//   description: string;
+// };
+
+export const HomepageVideo = ({
+  source,
+  title,
+  description,
+}: VideoPlayerProps) => {
   return (
     <Container
       maxWidth={false}
@@ -35,8 +45,10 @@ export const HomepageVideo = () => {
             borderRadius: "25px",
             width: { md: "45vw" },
           }}
-          title="Acetone - Mark Brown"
-          src="https://www.youtube.com/embed/T7yoIB4v8UM?si=1BwTmNHpGOgKjv7M"
+          title={title}
+          src={source}
+          // title="Acetone - Mark Brown"
+          // src="https://www.youtube.com/embed/T7yoIB4v8UM?si=1BwTmNHpGOgKjv7M"
           // alt="Mark Brown Plays Acetone at the Rosendale Cafe."
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -48,31 +60,31 @@ export const HomepageVideo = () => {
             }}
           >
             <Typography
-              component="div"
-              variant="h3"
-              className={blackHanSans.className}
+              component="h3"
+              variant="accent"
               style={{
                 // fontFamily: "Black Han Sans",
                 fontSize: "1.8rem",
                 color: "#E2B164",
               }}
             >
-              Acetone
+              {title}
             </Typography>
             <Typography
               py={2}
               variant="subtitle1"
               color="text.secondary"
               //   fontFamily={"Roboto"}
-              className={roboto.className}
+
               component="div"
               fontSize={"1rem"}
               sx={{ color: "white" }}
             >
-              This is from a show we did on the lawn at the Rosendale Cafe last
+              {description}
+              {/* This is from a show we did on the lawn at the Rosendale Cafe last
               summer. I&apos;m playing along with John Hughes, Ken McGloin and
               Dean Jones- its always been a pleasure for us to play at our home
-              town venue...
+              town venue... */}
             </Typography>
           </CardContent>
         </Box>
