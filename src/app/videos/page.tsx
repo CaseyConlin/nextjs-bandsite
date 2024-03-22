@@ -1,14 +1,10 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-
-import { VideoPageHeaderProps } from "@/components/VideoPageHeader";
-
 import { useState, useEffect } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
 import { VideoPageHeader } from "@/components/VideoPageHeader";
-import { InteriorVideoCard } from "@/components/InteriorVideoPlayer";
+import { InteriorVideoCard } from "@/components/InteriorVideoCard";
 import {
   fetchVideosByChannelID,
   fetchVideoChannelInfo,

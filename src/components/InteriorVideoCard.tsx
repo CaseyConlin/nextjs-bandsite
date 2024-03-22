@@ -11,7 +11,14 @@ export const InteriorVideoCard = ({
   source,
 }: VideoPlayerProps) => {
   return (
-    <Card sx={{ maxWidth: 450, borderRadius: "25px", height: "100%" }}>
+    <Card
+      sx={{
+        maxWidth: 450,
+        borderRadius: "25px",
+        height: "100%",
+        backgroundColor: "rgba(255,255,255,85%)",
+      }}
+    >
       <CardMedia
         component="iframe"
         sx={{

@@ -28,6 +28,8 @@ import { Footer } from "@/components/Footer";
 
 // const inter = Inter({ subsets: ["latin"] });
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Mark Brown",
   description: "Folk Americana Country Indie Musician in Ulster County, NY",

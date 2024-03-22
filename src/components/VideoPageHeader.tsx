@@ -26,6 +26,7 @@ export const VideoPageHeader = ({
           m: { xs: 1, sm: 2 },
           maxWidth: { xs: "xs", md: "xl" },
           borderRadius: "25px",
+          backgroundColor: "rgba(255,255,255,85%)",
         }}
       >
         <Grid
