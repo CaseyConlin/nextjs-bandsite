@@ -1,4 +1,4 @@
-import bg from "../../public/bulldozerseaguls.png";
+import bg from "../../public/bulldozerseaguls.webp";
 import { Toolbar } from "@mui/material";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";

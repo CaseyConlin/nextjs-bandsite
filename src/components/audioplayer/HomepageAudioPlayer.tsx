@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback, ChangeEvent } from "react";
+import type { InferGetStaticPropsType, GetStaticProps } from "next";
+
 import emotionStyled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";

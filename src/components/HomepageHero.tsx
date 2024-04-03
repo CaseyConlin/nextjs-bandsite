@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import bg from "../../public/markbrownhappyhourcovernotext.png";
+import bg from "../../public/markbrownhappyhourcovernotext.webp";
 
 export function HomepageHero({}) {
   return (

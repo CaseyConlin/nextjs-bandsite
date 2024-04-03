@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { ReviewCard } from "@/components/ReviewCard";
 import { reviews } from "@/data/reviews";
-import { AddBox } from "@mui/icons-material";
 
 const ReviewsPage = () => {
   return (
@@ -39,7 +38,7 @@ const ReviewsPage = () => {
           and I’m grateful to all the folks who put the time in to listen and
           review my music as well as the music and art of all the other great
           acts out there. We like to think we’re contributing in our own way to
-          FILL IN GENRE, and the reviews and write-ups like the ones below are
+          Americana, and the reviews and write-ups like the ones below are
           definitely part of that, too.
         </Typography>
         <Typography py={2}>
