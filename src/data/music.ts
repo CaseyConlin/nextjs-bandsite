@@ -125,4 +125,22 @@ export const music = [
     file: "the_unanswered_prayer.mp3",
     duration: "0",
   },
+  {
+    trackNum: 1,
+    songName: "See You Next Time",
+    album: "Skin & Bones",
+    albumCover: "skinandbonealbum.webp",
+    artist: "Mark Brown",
+    file: "see_you_next_time.mp3",
+    duration: "0",
+  },
+  {
+    trackNum: 2,
+    songName: "Cried in Your Bed",
+    album: "Skin & Bones",
+    albumCover: "skinandbonealbum.webp",
+    artist: "Mark Brown",
+    file: "cried_in_your_bed.mp3",
+    duration: "0",
+  },
 ];

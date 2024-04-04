@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 import { HomepageHero } from "@/components/HomepageHero";
 import { HomepageTextSection } from "@/components/HomepageTextSection";
 import { HomepageVideo } from "@/components/HomepageVideoPlayer";
-import { HomepageAudioPlayer } from "@/components/audioplayer/HomepageAudioPlayer";
+import { AudioPlayer } from "@/components/audioplayer/AudioPlayer";
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
       {/* <NavBar /> */}
       <main className={styles.main}>
         <HomepageHero />
-        <HomepageAudioPlayer />
+        <AudioPlayer homepage={true} />
 
         <HomepageTextSection />
         {/* <div className={styles.description}>

@@ -31,13 +31,16 @@ const linksAndIcons = [
     alt: "pandora icon",
   },
 ];
-export const StreamingStack = () => {
+export type StreamingStackProps = {
+  left?: boolean;
+};
+export const StreamingStack = ({ left }: StreamingStackProps) => {
   return (
     <Stack
       direction="row"
       spacing={2}
       my={3}
-      justifyContent="center"
+      justifyContent={left ? "flex-start" : "center"}
       alignContent="center"
     >
       {linksAndIcons &&

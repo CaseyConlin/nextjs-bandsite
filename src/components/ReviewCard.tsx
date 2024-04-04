@@ -30,6 +30,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
         backgroundColor: "rgba(255,255,255,85%)",
       }}
     >
+      <a id={`#${review.id}`}></a>
       {review.reviewerImageSrc && (
         <CardMedia
           sx={{ ml: 2, width: 150, height: 150, borderRadius: "25px" }}

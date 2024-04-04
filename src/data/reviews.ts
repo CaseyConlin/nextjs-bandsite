@@ -16,7 +16,7 @@ export const reviews = [
     reviewer: "PureMZine",
     reviewerLink: "https://puremzine.com/",
     reviewerImageSrc: "purem.webp",
-    album: "skinAndBone",
+    album: "skinAndBones",
   },
   {
     id: "2208",
@@ -37,7 +37,7 @@ export const reviews = [
     reviewer: "The Rocking Magpie",
     reviewerLink: "https://rockingmagpie.wordpress.com/",
     reviewerImageSrc: "rockmagpie.webp",
-    album: "skinAndBone",
+    album: "skinAndBones",
   },
   {
     id: "2094",
@@ -60,7 +60,7 @@ export const reviews = [
       "Go on and listen. Then... Drop your heart into a blender, a splash of Jack Daniels, …then drink up.",
     ],
     reviewer: "Mark Morganstern",
-    album: "skinAndBone",
+    album: "skinAndBones",
   },
 
   {
@@ -72,7 +72,7 @@ export const reviews = [
     title: "Review of Skin & Bone",
     reviewer: "The Irish Post",
     reviewerLink: "https://www.irishpost.com/",
-    album: "skinAndBone",
+    album: "skinAndBones",
   },
 
   {
@@ -89,7 +89,7 @@ export const reviews = [
     reviewer: "Keys & Chords",
     reviewerLink: "http://www.keysandchords.com/",
     reviewerImageSrc: "kandc.webp",
-    album: "skinAndBone",
+    album: "skinAndBones",
   },
 
   {
@@ -101,7 +101,7 @@ export const reviews = [
     ],
     reviewer: "Gloucestershire Echo in the UK",
     reviewerLink: "www.gloucestershireecho.co.uk",
-    album: "skinAndBone",
+    album: "skinAndBones",
   },
 
   {
@@ -115,7 +115,7 @@ export const reviews = [
     reviewerLink: "https://americana-uk.com/",
     reviewerImageSrc: "AUK-logo.webp",
 
-    album: "skinAndBone",
+    album: "skinAndBones",
   },
 
   {
@@ -128,7 +128,7 @@ export const reviews = [
       "Skin & Bone is produced by Grammy Award-winning Dean Jones and features Ken McGloin on Guitar, John Parker on bass, Dean Sharp on Drums, Guy ‘Fooch’ Fichetti on pedal steel and Jones on everything else, with a few guest appearances thrown in for good measure. It’s pitched somewhere between Johnny Cash, Nick Cave and Tom Waits, with a refreshing dose of raw honesty and sly humor. Pour a drink, pull up a chair and treat yourself.",
     ],
     reviewer: "R2 Magazine",
-    album: "skinAndBone",
+    album: "skinAndBones",
     reviewerImageSrc: "rnrlogo.webp",
   },
 ];

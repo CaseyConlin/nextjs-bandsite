@@ -6,9 +6,11 @@ export const albums = [
     image: "markbrownhappyhourcover.webp",
   },
   {
-    slug: "skinandbone",
-    title: "Skin & Bone",
-    description: ["testsb", "testSB"],
+    slug: "skinandbones",
+    title: "Skin & Bones",
+    description: [
+      "Mark Brown’s long-awaited new CD, Skin and Bone, is finally here. And skin and bone it is, as it rips off the veneer of happy faces and genteel manners—forget easy living—and reveals the pain, longing, and despair you feel sometimes, be it for a lifeless tractor, a gal who just ain’t gonna be there, or just because the moon makes a face at you. Herein lies an artistic dilemma: if you only sing about happy things, you run out of material real quick.",
+    ],
     image: "skinandbonealbum.webp",
   },
   {

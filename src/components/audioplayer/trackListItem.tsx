@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import Typography from "@mui/material/Typography";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { Box } from "@mui/material";
-import { track } from "./HomepageAudioPlayer";
+import { track } from "./AudioPlayer";
 import { roboto } from "../../app/fonts";
 import VolumeUpRounded from "@mui/icons-material/VolumeUpRounded";
 
