@@ -87,15 +87,15 @@ export const AudioPlayer = ({
         audio.preload = "metadata";
         audio.appendChild(source);
         audio.onloadedmetadata = function () {
-          resolve(audio.duration);
+          return resolve(audio.duration);
         };
       });
     };
 
     const setDurations = async () => {
-      let promises = tracks.map(async (song) => {
-        return getTrackDuration(song.file).then((dur: any) => {
-          song.duration = formatDuration(Number(dur));
+      let promises = tracks.map(async (track: track) => {
+        return getTrackDuration(track.file).then((dur) => {
+          track.duration = formatDuration(Number(dur));
         });
       });
       Promise.all(promises).then(() => {

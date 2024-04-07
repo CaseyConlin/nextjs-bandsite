@@ -1,17 +1,26 @@
+"use client";
 import bg from "../../public/bulldozerseaguls.webp";
 import { Toolbar } from "@mui/material";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Typography from "@mui/material/Typography";
-const pagesLeft = ["Albums", "Videos", "Gigs"];
 import Link from "next/link";
 import { YouTube } from "@mui/icons-material";
+import { FacebookOutlined } from "@mui/icons-material";
 
 import { blackHanSans } from "@/app/fonts";
 
-const pagesRight = ["Reviews", "Bio", "Contact"];
-
+const pagesLeft = [
+  { name: "Albums", link: "albums" },
+  { name: "Videos", link: "videos" },
+  { name: "Gigs", link: "gigs" },
+];
+const pagesRight = [
+  { name: "Reviews", link: "reviews" },
+  { name: "Bio", link: "bio" },
+  { name: "Contact", link: "contact" },
+];
 export const Footer = () => {
   return (
     <Grid
@@ -48,7 +57,7 @@ export const Footer = () => {
               alignContent: "flex-end",
             }}
           >
-            {/* <Grid
+            <Grid
               py={0}
               my={0}
               xs={4}
@@ -58,8 +67,9 @@ export const Footer = () => {
               }}
             >
               {pagesLeft.map((page) => (
-                <Button
-                  key={page}
+                <Typography
+                  variant="accent"
+                  key={page.name}
                   className={blackHanSans.className}
                   sx={{
                     my: 2,
@@ -72,10 +82,10 @@ export const Footer = () => {
                     // fontFamily: "Black Han Sans",
                   }}
                 >
-                  {page}
-                </Button>
+                  <Link href={`/${page.link}`}>{page.name}</Link>
+                </Typography>
               ))}
-            </Grid> */}
+            </Grid>
             <Grid
               xs="auto"
               sx={{
@@ -89,7 +99,7 @@ export const Footer = () => {
                 variant="accent"
                 noWrap
                 component="a"
-                href="#app-bar-with-responsive-menu"
+                href="/"
                 sx={{
                   display: "flex",
                   fontSize: { xs: "2rem", md: "2.5rem", xl: "3.5rem" },
@@ -106,7 +116,7 @@ export const Footer = () => {
                 Mark Brown
               </Typography>
             </Grid>
-            {/* <Grid
+            <Grid
               xs={4}
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -114,8 +124,8 @@ export const Footer = () => {
               }}
             >
               {pagesRight.map((page) => (
-                <Button
-                  key={page}
+                <Typography
+                  key={page.name}
                   variant="accent"
                   className={blackHanSans.className}
                   sx={{
@@ -129,10 +139,10 @@ export const Footer = () => {
                     // fontFamily: "Black Han Sans",
                   }}
                 >
-                  {page}
-                </Button>
+                  <Link href={`/${page.link}`}>{page.name}</Link>
+                </Typography>
               ))}
-            </Grid> */}
+            </Grid>
           </Grid>
         </Toolbar>
         <Grid
@@ -152,7 +162,15 @@ export const Footer = () => {
             target="_blank"
             href="https://www.youtube.com/channel/UCJzQ4krap2qE6JBMbS_IRmg"
           >
-            <YouTube style={{ fontSize: "3.5rem", fill: "#E2B164" }} />
+            <YouTube style={{ fontSize: "2.5rem", fill: "#E2B164" }} />
+          </IconButton>{" "}
+          <IconButton
+            aria-label="facebook"
+            component="a"
+            target="_blank"
+            href="https://www.facebook.com/profile.php?id=100069423533528"
+          >
+            <FacebookOutlined style={{ fontSize: "2.5rem", fill: "#E2B164" }} />
           </IconButton>
         </Grid>
         <Grid

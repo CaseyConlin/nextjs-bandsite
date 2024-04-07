@@ -18,7 +18,7 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
-import { albums } from "@/data/albums";
+import { albumType, albums } from "@/data/albums";
 import { reviews } from "@/data/reviews";
 import { AlbumPageHeader } from "@/components/AlbumPageHeader";
 import { AudioPlayer } from "@/components/audioplayer/AudioPlayer";
@@ -30,7 +30,7 @@ export async function generateStaticParams() {
   //   console.log(review);
   //   return { slug: review.id };
   // });
-  return albums.map((album: any) => ({
+  return albums.map((album: albumType) => ({
     slug: album.slug,
   }));
 }
@@ -78,7 +78,7 @@ export default function Page({ params }: { params: { slug: string } }) {
             />
           );
         })} */}
-      {reviewData && albumData && (
+      {reviewData.length > 0 && albumData && (
         <SwipeableTextMobileStepper
           albumTitle={albumData.title}
           albumReviews={reviewData}

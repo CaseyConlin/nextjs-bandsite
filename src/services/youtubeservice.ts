@@ -3,8 +3,19 @@ const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 const apiUrl = "https://www.googleapis.com/youtube/v3";
 const channelID = "UCJzQ4krap2qE6JBMbS_IRmg";
 const playlistID = "UUJzQ4krap2qE6JBMbS_IRmg";
+
+import { videoItemType, videos } from "@/data/videos";
 // const playlistID = "UUpRmvjdu3ixew5ahydZ67uA";
 // const playlistID = "UU6lim77xHQQ9Tio9e_ydxEw"; //test channelID with addtional videos
+export type videoResponseItemType = {
+  title: string;
+  description?: string;
+  source: string;
+  resourceId: { videoId: string };
+};
+export type videoResponseType = {
+  snippet: videoResponseItemType;
+};
 
 export const fetchVideoChannelInfo = async (): Promise<ChannelDataType> => {
   const response = await fetch(
@@ -29,8 +40,8 @@ export const fetchVideosByChannelID = async () => {
 
   const data = await response.json();
 
-  data.items.map((item: any) => {
-    const dataItemSnippet = item.snippet;
+  data.items.map((item: videoResponseType) => {
+    const dataItemSnippet: videoResponseItemType = item.snippet;
     const videoItem = {
       title: dataItemSnippet.title,
       description: dataItemSnippet.description,
@@ -38,6 +49,8 @@ export const fetchVideosByChannelID = async () => {
     };
     videoList.push(videoItem);
   });
+
+  videoList.push(...videos);
 
   return videoList;
 };

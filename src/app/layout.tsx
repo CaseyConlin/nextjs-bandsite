@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import Head from "next/head";
 
 import "./globals.css";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/ui/NavBar";
 import { ContactFooter } from "@/components/ContactFooter";
 import { Footer } from "@/components/Footer";
 // import { Inter } from "next/font/google";

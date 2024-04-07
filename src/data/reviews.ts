@@ -1,3 +1,14 @@
+export type albumReviewType = {
+  id: string;
+  title: string;
+  link?: string;
+  subtitle?: string;
+  reviewText: string[];
+  reviewer: string;
+  reviewerLink?: string;
+  reviewerImageSrc?: string;
+  album: string;
+};
 export const reviews = [
   {
     id: "2189",

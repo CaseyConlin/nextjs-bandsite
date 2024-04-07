@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 import { useState, MouseEvent } from "react";
 import AppBar from "@mui/material/AppBar";
@@ -14,11 +15,18 @@ import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { blackHanSans } from "@/app/fonts";
+// import { blackHanSans } from "@/app/fonts";
 
-const pages = ["Products", "Pricing", "Blog"];
-const pagesLeft = ["Albums", "Videos", "Gigs"];
-const pagesRight = ["Reviews", "Bio", "Contact"];
+const pagesLeft = [
+  { name: "Albums", link: "albums" },
+  { name: "Videos", link: "videos" },
+  { name: "Gigs", link: "gigs" },
+];
+const pagesRight = [
+  { name: "Reviews", link: "reviews" },
+  { name: "Bio", link: "bio" },
+  { name: "Contact", link: "contact" },
+];
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -58,7 +66,6 @@ function NavBar() {
           disableGutters
           sx={{ display: "flex", justifyContent: "center" }}
         >
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           {/* <Typography
             variant="h6"
             noWrap
@@ -80,8 +87,8 @@ function NavBar() {
           <Typography
             variant="accent"
             noWrap
-            component="a"
-            href="/"
+            // component="a"
+            // href="/"
             sx={{
               //   mr: 2,
               display: { xs: "flex", md: "none" },
@@ -101,7 +108,7 @@ function NavBar() {
               textDecoration: "none",
             }}
           >
-            Mark Brown
+            <Link href="/">Mark Brown</Link>
           </Typography>
           {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -144,36 +151,35 @@ function NavBar() {
             container
             sx={{
               display: { xs: "none", md: "flex" },
-              justifyContent: "space-evenly",
+              justifyContent: "center",
               width: "100vw",
             }}
           >
-            {/* <Grid
+            <Grid
               xs={4}
               sx={{
                 display: { xs: "none", md: "flex" },
-                justifyContent: "center",
+                justifyContent: "flex-end",
               }}
             >
               {pagesLeft.map((page) => (
-                <Button
-                  key={page}
-                  className={blackHanSans.className}
+                <Typography
+                  variant="accent"
+                  key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{
                     my: 2,
                     mx: 2,
-                    fontSize: "1.125rem",
+                    fontSize: "1.25rem",
                     textTransform: "capitalize",
-                    color: "black",
+                    color: pathName === "/" ? "black" : "white",
                     display: "block",
-                    // fontFamily: "Black Han Sans",
                   }}
                 >
-                  {page}
-                </Button>
+                  <Link href={`/${page.link}`}>{page.name}</Link>
+                </Typography>
               ))}
-            </Grid> */}
+            </Grid>
             <Grid
               xs="auto"
               sx={{
@@ -184,7 +190,7 @@ function NavBar() {
               }}
             >
               <Typography
-                className={blackHanSans.className}
+                // className={blackHanSans.className}
                 variant="accent"
                 noWrap
                 component="a"
@@ -203,38 +209,40 @@ function NavBar() {
                   textShadow:
                     "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)",
                   textDecoration: "none",
+                  mx: 5,
                   //   fontFamily: "Black Han Sans",
                 }}
               >
                 Mark Brown
               </Typography>
             </Grid>
-            {/* <Grid
+            <Grid
               xs={4}
               sx={{
                 display: { xs: "none", md: "flex" },
-                justifyContent: "center",
+                justifyContent: "flex-start",
               }}
             >
               {pagesRight.map((page) => (
-                <Button
-                  className={blackHanSans.className}
-                  key={page}
+                <Typography
+                  // className={blackHanSans.className}
+                  variant="accent"
+                  key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{
-                    fontSize: "1.125rem",
+                    fontSize: "1.25rem",
                     textTransform: "capitalize",
                     my: 2,
                     mx: 2,
-                    color: "black",
+                    color: pathName === "/" ? "black" : "white",
                     display: "block",
                     // fontFamily: "Black Han Sans",
                   }}
                 >
-                  {page}
-                </Button>
+                  <Link href={`/${page.link}`}>{page.name}</Link>
+                </Typography>
               ))}
-            </Grid> */}
+            </Grid>
           </Grid>
         </Toolbar>
       </Grid>

@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import { reviews } from "@/data/reviews";
+import { albumReviewType, reviews } from "@/data/reviews";
 
 // const images = [
 //   {
@@ -36,8 +36,7 @@ import { reviews } from "@/data/reviews";
 
 export type ReviewSliderProps = {
   albumTitle: string;
-
-  albumReviews: any[];
+  albumReviews: albumReviewType[];
 };
 export const SwipeableTextMobileStepper = ({
   albumTitle,
