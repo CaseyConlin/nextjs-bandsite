@@ -4,9 +4,9 @@ import { useState, useRef, useEffect, useCallback, ChangeEvent } from "react";
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
 
 import emotionStyled from "@emotion/styled";
-import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import Box from "@mui/material/Box";
 
 import { music } from "@/data/music";
 
@@ -16,6 +16,7 @@ import { VolumeControl } from "./VolumeControl";
 import { TimeControl } from "./TimeControl";
 import { TrackControls } from "./TrackControls";
 import { TrackInfoContainer } from "./TrackInfoContainer";
+import { LinearLoading } from "../ui/LinearLoading";
 
 import { setDurations } from "@/utilities/utilities";
 
@@ -61,17 +62,7 @@ export const AudioPlayer = ({
   const [paused, setPaused] = useState(true);
   const [volume, setVolume] = useState(50);
   const [songTrack, setSongTrack] = useState(0);
-  const [trackList, setTrackList] = useState<track[] | undefined>([
-    {
-      trackNum: 1,
-      songName: "",
-      album: "",
-      albumCover: "",
-      artist: "",
-      file: "",
-      duration: "0",
-    },
-  ]);
+  const [trackList, setTrackList] = useState<track[] | undefined>();
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const trackListItemRef = useRef<HTMLDivElement>(null);
@@ -106,13 +97,9 @@ export const AudioPlayer = ({
     // };
 
     setDurations(tracks).then((res) => {
-      console.log("front++++++++++++++++++++++++++++++++++++++++++++");
-
-      console.log(res);
       setTrackList(res);
     });
     durationHandler();
-    console.log(trackList);
   }, []);
 
   const playPauseHandler = () => {
@@ -336,7 +323,7 @@ export const AudioPlayer = ({
                 width: "100%",
               }}
             >
-              {trackList &&
+              {trackList ? (
                 trackList.map((song) => {
                   return (
                     <TrackListItem
@@ -352,7 +339,10 @@ export const AudioPlayer = ({
                       ref={trackListItemRef}
                     />
                   );
-                })}
+                })
+              ) : (
+                <LinearLoading />
+              )}
             </Box>
           </Grid>
         </Grid>

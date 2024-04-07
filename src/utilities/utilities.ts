@@ -1,4 +1,5 @@
 import { track } from "@/components/audioplayer/AudioPlayer";
+
 const getTrackDuration = async (file: string) => {
   return new Promise((resolve) => {
     const audio = document.createElement("audio");
@@ -13,11 +14,12 @@ const getTrackDuration = async (file: string) => {
   });
 };
 
-function formatDuration(value: number) {
+const formatDuration = (value: number) => {
   const minute = Math.floor(value / 60);
   const secondLeft = Math.floor(value - minute * 60);
   return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
-}
+};
+
 export const setDurations = async (tracks: track[]) => {
   let updatedList: track[] = [];
 
@@ -27,8 +29,10 @@ export const setDurations = async (tracks: track[]) => {
       updatedList.push(track);
     });
   });
+
   let newList = await Promise.all(promises).then(() => {
     return updatedList;
   });
+
   return newList;
 };
