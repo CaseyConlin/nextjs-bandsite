@@ -17,6 +17,8 @@ import { TimeControl } from "./TimeControl";
 import { TrackControls } from "./TrackControls";
 import { TrackInfoContainer } from "./TrackInfoContainer";
 
+import { setDurations } from "@/utilities/utilities";
+
 const Widget = emotionStyled("div")(({ theme }) => ({
   //   padding: 16,
   borderRadius: "25px",
@@ -59,7 +61,7 @@ export const AudioPlayer = ({
   const [paused, setPaused] = useState(true);
   const [volume, setVolume] = useState(50);
   const [songTrack, setSongTrack] = useState(0);
-  const [trackList, setTrackList] = useState([
+  const [trackList, setTrackList] = useState<track[] | undefined>([
     {
       trackNum: 1,
       songName: "",
@@ -78,34 +80,39 @@ export const AudioPlayer = ({
   });
 
   useEffect(() => {
-    const getTrackDuration = async (file: string) => {
-      return new Promise((resolve) => {
-        const audio = document.createElement("audio");
-        audio.muted = true;
-        const source = document.createElement("source");
-        source.src = "/music/" + file;
-        audio.preload = "metadata";
-        audio.appendChild(source);
-        audio.onloadedmetadata = function () {
-          return resolve(audio.duration);
-        };
-      });
-    };
+    // const getTrackDuration = async (file: string) => {
+    //   return new Promise((resolve) => {
+    //     const audio = document.createElement("audio");
+    //     audio.muted = true;
+    //     const source = document.createElement("source");
+    //     source.src = "/music/" + file;
+    //     audio.preload = "metadata";
+    //     audio.appendChild(source);
+    //     audio.onloadedmetadata = function () {
+    //       return resolve(audio.duration);
+    //     };
+    //   });
+    // };
 
-    const setDurations = async () => {
-      let promises = tracks.map(async (track: track) => {
-        return getTrackDuration(track.file).then((dur) => {
-          track.duration = formatDuration(Number(dur));
-        });
-      });
-      Promise.all(promises).then(() => {
-        setTrackList(tracks);
-        return tracks;
-      });
-    };
+    // const setDurations = async () => {
+    //   let promises = tracks.map(async (track: track) => {
+    //     return getTrackDuration(track.file).then((dur) => {
+    //       track.duration = formatDuration(Number(dur));
+    //     });
+    //   });
+    //   Promise.all(promises).then(() => {
+    //     setTrackList(tracks);
+    //   });
+    // };
 
-    setDurations();
+    setDurations(tracks).then((res) => {
+      console.log("front++++++++++++++++++++++++++++++++++++++++++++");
+
+      console.log(res);
+      setTrackList(res);
+    });
     durationHandler();
+    console.log(trackList);
   }, []);
 
   const playPauseHandler = () => {
@@ -329,7 +336,7 @@ export const AudioPlayer = ({
                 width: "100%",
               }}
             >
-              {trackList.length > 1 &&
+              {trackList &&
                 trackList.map((song) => {
                   return (
                     <TrackListItem
