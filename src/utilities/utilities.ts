@@ -36,3 +36,20 @@ export const setDurations = async (tracks: track[]) => {
 
   return newList;
 };
+
+export const formatDate = (date: string) => {
+  const formatted = new Date(date).toLocaleDateString("en-us", {
+    day: "numeric",
+    year: "numeric",
+    month: "long",
+  });
+  return formatted;
+};
+
+export const formatTime = (date: string) => {
+  const formatted = new Date(date).toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return formatted;
+};

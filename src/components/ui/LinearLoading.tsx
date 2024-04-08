@@ -4,7 +4,13 @@ import LinearProgress from "@mui/material/LinearProgress";
 export const LinearLoading = () => {
   return (
     <Box
-      sx={{ disply: "flex", justifyContent: "stretch", pt: 5, width: "100%" }}
+      sx={{
+        disply: "flex",
+        justifyContent: "stretch",
+        pt: 5,
+        width: "95%",
+        margin: "auto",
+      }}
     >
       <LinearProgress
         sx={{
@@ -15,7 +21,7 @@ export const LinearLoading = () => {
           },
           borderRadius: "25px",
           color: "black",
-          height: "10px",
+          height: "7px",
         }}
       />
     </Box>
