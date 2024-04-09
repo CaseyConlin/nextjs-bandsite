@@ -1,13 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-
 import IconButton from "@mui/material/IconButton";
 
 import { YouTube } from "@mui/icons-material";
@@ -46,7 +43,7 @@ export default function Page() {
           Gigs, Reviews, Questions, etc...
         </Typography>
         <Typography component="p">
-          If you want to book a show, request a CD, more info, or just reach
+          If you want to book a show, request a CD, get more info, or just reach
           out, contact me at{" "}
           <Typography fontWeight={500} component="span" my={2}>
             <Link href="mark@unclebuckle.com" style={{ fontWeight: "900" }}>

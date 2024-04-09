@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import bg from "../../public/markbrownhappyhourcovernotext.webp";
 
-export function HomepageHero({}) {
+export const HomepageHero = () => {
   return (
     <Box
       className="homepage-hero-container"
@@ -15,15 +15,6 @@ export function HomepageHero({}) {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top center ",
       }}
-    >
-      {/* <Image
-        src={`/markbrownhappyhourcovernotext.png`}
-        alt="Americana musician Mark Brown at a dump."
-        className="homepage-hero"
-        fill={true}
-      /> */}
-    </Box>
+    ></Box>
   );
-
-  /* Homepage Header */
-}
+};

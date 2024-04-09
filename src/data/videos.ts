@@ -1,14 +1,9 @@
-// export type videoItemType = {
-//   title: string;
-//   description?: string;
-//   source: string;
-//   resourceId: { videoId: string };
-// };
 export type videoItemType = {
   title: string;
   description?: string;
   source: string;
 };
+
 export const videos = [
   {
     title: "HORSES SING NONE OF IT! #389 Uncle Buckle",

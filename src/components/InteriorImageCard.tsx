@@ -2,8 +2,6 @@
 
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
 export type ImageCardProps = {
@@ -38,7 +36,6 @@ export const InteriorImageCard = ({
           }}
           alt={title}
           image={`/${imageSource}`}
-          // allow="fullscreen"
         />
       </Card>
     </Link>

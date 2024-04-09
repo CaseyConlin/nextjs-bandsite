@@ -1,15 +1,15 @@
 "use client";
-import bg from "../../public/bulldozerseaguls.webp";
-import { Toolbar } from "@mui/material";
-import Button from "@mui/material/Button";
+
+import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+
 import { YouTube } from "@mui/icons-material";
 import { FacebookOutlined } from "@mui/icons-material";
 
-import { blackHanSans } from "@/app/fonts";
+import bg from "../../public/bulldozerseaguls.webp";
 
 const pagesLeft = [
   { name: "Albums", link: "albums" },
@@ -29,13 +29,10 @@ export const Footer = () => {
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${bg.src})`,
         height: 450,
-        // width: "100vw",
-
         objectFit: "cover",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center ",
-        // filter: "brightness(20%)",
       }}
     >
       <Grid
@@ -70,16 +67,13 @@ export const Footer = () => {
                 <Typography
                   variant="accent"
                   key={page.name}
-                  className={blackHanSans.className}
                   sx={{
                     my: 2,
                     mx: 2,
                     fontSize: "1.125rem",
                     textTransform: "capitalize",
                     color: "#E2B164",
-
                     display: "block",
-                    // fontFamily: "Black Han Sans",
                   }}
                 >
                   <Link href={`/${page.link}`}>{page.name}</Link>
@@ -104,13 +98,10 @@ export const Footer = () => {
                   display: "flex",
                   fontSize: { xs: "2rem", md: "2.5rem", xl: "3.5rem" },
                   textAlign: "center",
-
-                  //   letterSpacing: ".3rem",
                   color: "#E2B164",
                   textShadow:
                     "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)",
                   textDecoration: "none",
-                  //   fontFamily: "Black Han Sans",
                 }}
               >
                 Mark Brown
@@ -127,16 +118,13 @@ export const Footer = () => {
                 <Typography
                   key={page.name}
                   variant="accent"
-                  className={blackHanSans.className}
                   sx={{
                     fontSize: "1.125rem",
                     textTransform: "capitalize",
                     my: 2,
                     mx: 2,
                     color: "#E2B164",
-
                     display: "block",
-                    // fontFamily: "Black Han Sans",
                   }}
                 >
                   <Link href={`/${page.link}`}>{page.name}</Link>
@@ -175,7 +163,6 @@ export const Footer = () => {
         </Grid>
         <Grid
           mt={15}
-          // className={blackHanSans.className}
           sx={{
             display: "flex",
             letterSpacing: ".175rem",

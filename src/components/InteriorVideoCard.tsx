@@ -1,5 +1,3 @@
-// import { VideoPlayerProps } from "./HomepageVideoPlayer";
-
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
@@ -25,7 +23,6 @@ export const InteriorVideoCard = ({
           border: 0,
           aspectRatio: "16 / 9",
           borderRadius: "25px",
-          // width: { md: "45vw" },
           padding: { xs: 1, md: 2 },
         }}
         title={title}

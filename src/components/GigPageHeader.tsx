@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Box from "@mui/material/Box";
+
 import { LinkButton } from "./ui/LinkButton";
 import { formatDate, formatTime } from "@/utilities/utilities";
 
@@ -43,18 +44,15 @@ export const GigPageHeader = ({
             md={5}
             display="flex"
             justifyContent="center"
-            // alignItems="center"
             sx={{ p: { xs: 1, md: 4 } }}
           >
             <CardMedia
               component="img"
-              // height="200px"
               image={`/events/${imageSource}`}
               alt={`${title}.`}
               sx={{
                 borderRadius: "25px",
                 width: "100%",
-                // aspectRatio: "1/1",
                 my: { xs: 2, md: 0 },
               }}
             />

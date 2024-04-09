@@ -1,8 +1,10 @@
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { ReviewCard } from "@/components/ReviewCard";
+
 import { reviews } from "@/data/reviews";
+
+import { ReviewCard } from "@/components/ReviewCard";
 
 const ReviewsPage = () => {
   return (

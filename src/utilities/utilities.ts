@@ -1,4 +1,4 @@
-import { track } from "@/components/audioplayer/AudioPlayer";
+import { trackType } from "@/components/audioplayer/AudioPlayer";
 
 const getTrackDuration = async (file: string) => {
   return new Promise((resolve) => {
@@ -20,10 +20,10 @@ const formatDuration = (value: number) => {
   return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
 };
 
-export const setDurations = async (tracks: track[]) => {
-  let updatedList: track[] = [];
+export const setDurations = async (tracks: trackType[]) => {
+  let updatedList: trackType[] = [];
 
-  let promises = tracks.map(async (track: track) => {
+  let promises = tracks.map(async (track: trackType) => {
     return await getTrackDuration(track.file).then((dur) => {
       track.duration = formatDuration(Number(dur));
       updatedList.push(track);
@@ -31,6 +31,7 @@ export const setDurations = async (tracks: track[]) => {
   });
 
   let newList = await Promise.all(promises).then(() => {
+    updatedList.sort((a, b) => a.trackNum - b.trackNum);
     return updatedList;
   });
 

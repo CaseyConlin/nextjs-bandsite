@@ -1,35 +1,14 @@
-// export async function generateStaticParams() {
-//   const posts = await fetch("@/data/reviews").then((res) => res.json());
-
-//   return posts.map((post: any) => ({
-//     slug: post.slug,
-//   }));
-// }
-
-// export default function Page({ params }: { params: { slug: string } }) {
-//   return <div>My Post: {params.slug}</div>;
-// }
-
-// import projectlist from '@/app/projects.json'
-// import {notFound} from "next/navigation";
-import Link from "next/link";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import SwipeableTextMobileStepper from "@/components/ui/reviewSlider/ReviewSlider";
 
 import { albumType, albums } from "@/data/albums";
 import { reviews } from "@/data/reviews";
+
 import { AlbumPageHeader } from "@/components/AlbumPageHeader";
 import { AudioPlayer } from "@/components/audioplayer/AudioPlayer";
-import { ReviewCardSmall } from "@/components/ReviewCardSmall";
-import SwipeableTextMobileStepper from "@/components/ui/reviewSlider/ReviewSlider";
 
 export async function generateStaticParams() {
-  // const reviewData: any = reviews.map((review) => {
-  //   console.log(review);
-  //   return { slug: review.id };
-  // });
   return albums.map((album: albumType) => ({
     slug: album.slug,
   }));
@@ -66,18 +45,9 @@ export default function Page({ params }: { params: { slug: string } }) {
           imageSource={albumData.image}
         />
       )}
+
       {albumData && <AudioPlayer album={albumData.title} />}
-      {/* {reviewData &&
-        reviewData.map((review) => {
-          return (
-            <ReviewCardSmall
-              key={review.id}
-              id={review.id}
-              text={review.reviewText[0]}
-              reviewer={review.reviewer}
-            />
-          );
-        })} */}
+
       {reviewData.length > 0 && albumData && (
         <SwipeableTextMobileStepper
           albumTitle={albumData.title}

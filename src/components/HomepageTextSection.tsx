@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { blackHanSans, roboto } from "../app/fonts";
 
 export const HomepageTextSection = () => {
   return (
@@ -22,7 +21,6 @@ export const HomepageTextSection = () => {
           variant="accent"
           sx={{
             color: "#E2B164",
-            // fontFamily: "Black Han Sans",
             textAlign: "center",
             fontSize: "2rem",
           }}
@@ -33,7 +31,6 @@ export const HomepageTextSection = () => {
           mt="1rem"
           component="p"
           sx={{
-            // fontFamily: "Roboto",
             textAlign: "center",
             fontWeight: "normal",
             fontSize: "1rem",
@@ -55,10 +52,8 @@ export const HomepageTextSection = () => {
         </Typography>
         <Typography
           mt=".75rem"
-          className={roboto.className}
           component="p"
           sx={{
-            // fontFamily: "Roboto",
             textAlign: "center",
             fontWeight: "normal",
             fontSize: "1rem",

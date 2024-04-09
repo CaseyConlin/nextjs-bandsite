@@ -4,6 +4,7 @@ export type albumType = {
   description: string[];
   image: string;
 };
+
 export const albums = [
   {
     slug: "happyhour",

@@ -9,7 +9,7 @@ import { FacebookRounded } from "@mui/icons-material";
 
 export const ContactFooter = () => {
   const pathName = usePathname();
-  console.log(pathName);
+
   return pathName === "/contact/" ? (
     <Box mt={10}></Box>
   ) : (
@@ -21,8 +21,6 @@ export const ContactFooter = () => {
         alignItems: "center",
         padding: "5rem",
         bgcolor: pathName === "/" ? "#27221D" : "transparent",
-
-        // width: "100vw",
       }}
     >
       <Box bgcolor="#27221D" py="2rem">

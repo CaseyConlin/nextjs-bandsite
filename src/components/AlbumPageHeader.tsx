@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Box from "@mui/material/Box";
+
 import { StreamingStack } from "./ui/StreamingStack";
 
 export type AlbumPageHeaderProps = {
@@ -32,22 +33,14 @@ export const AlbumPageHeader = ({
           flexDirection="row"
           sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
         >
-          <Grid
-            md={5}
-            p={4}
-            display="flex"
-            justifyContent="center"
-            // alignItems="center"
-          >
+          <Grid md={5} p={4} display="flex" justifyContent="center">
             <CardMedia
               component="img"
-              // height="200px"
               image={`/${imageSource}`}
               alt={`${title} album cover.`}
               sx={{
                 borderRadius: "25px",
                 width: "100%",
-                // aspectRatio: "1/1",
                 my: { xs: 2, md: 0 },
               }}
             />

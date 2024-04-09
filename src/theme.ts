@@ -53,7 +53,6 @@ const theme = createTheme({
             borderRadius: "25px",
             fontSize: "1rem",
             fontFamily: blackHanSans.style.fontFamily,
-            // letterSpacing: ".01rem", // border: `2px dashed ${blue[500]}`,
             backgroundColor: "#E2B164",
             " &:hover": {
               backgroundColor: "#D59F5A",
@@ -62,12 +61,6 @@ const theme = createTheme({
             },
           },
         },
-        // {
-        //   props: { variant: "dashed", color: "secondary" },
-        //   style: {
-        //     border: `4px dashed ${red[500]}`,
-        //   },
-        // },
       ],
     },
   },

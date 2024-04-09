@@ -38,7 +38,7 @@ const Widget = emotionStyled("div")(({ theme }) => ({
   //   backgroundColor: "rgba(255,255,255,0.4)",
   //   backdropFilter: "blur(40px)",
 }));
-export type track = {
+export type trackType = {
   trackNum: number;
   songName: string;
   album: string;
@@ -62,7 +62,7 @@ export const AudioPlayer = ({
   const [paused, setPaused] = useState(true);
   const [volume, setVolume] = useState(50);
   const [songTrack, setSongTrack] = useState(0);
-  const [trackList, setTrackList] = useState<track[] | undefined>();
+  const [trackList, setTrackList] = useState<trackType[] | undefined>();
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const trackListItemRef = useRef<HTMLDivElement>(null);
@@ -71,31 +71,6 @@ export const AudioPlayer = ({
   });
 
   useEffect(() => {
-    // const getTrackDuration = async (file: string) => {
-    //   return new Promise((resolve) => {
-    //     const audio = document.createElement("audio");
-    //     audio.muted = true;
-    //     const source = document.createElement("source");
-    //     source.src = "/music/" + file;
-    //     audio.preload = "metadata";
-    //     audio.appendChild(source);
-    //     audio.onloadedmetadata = function () {
-    //       return resolve(audio.duration);
-    //     };
-    //   });
-    // };
-
-    // const setDurations = async () => {
-    //   let promises = tracks.map(async (track: track) => {
-    //     return getTrackDuration(track.file).then((dur) => {
-    //       track.duration = formatDuration(Number(dur));
-    //     });
-    //   });
-    //   Promise.all(promises).then(() => {
-    //     setTrackList(tracks);
-    //   });
-    // };
-
     setDurations(tracks).then((res) => {
       setTrackList(res);
     });
@@ -132,12 +107,6 @@ export const AudioPlayer = ({
     }
     const track = songTrack == 0 ? tracks.length - 1 : songTrack - 1;
     setSongTrack(track);
-
-    // if (audioRef.current) {
-    //   audioRef.current.paused
-    //     ? audioRef.current.play()
-    //     : audioRef.current.pause();
-    // }
   };
 
   useEffect(() => {
@@ -180,7 +149,6 @@ export const AudioPlayer = ({
     (event: ChangeEvent<HTMLAudioElement>) => {
       setPosition(Math.floor(event.currentTarget.currentTime));
       event.currentTarget.paused ? setPaused(true) : setPaused(false);
-      console.log(paused);
     },
 
     [setPosition]
@@ -204,9 +172,6 @@ export const AudioPlayer = ({
       };
     }
   };
-
-  //   const playingTrackDuration = 200; // seconds
-  //   const [position, setPosition] = React.useState(32);
 
   function formatDuration(value: number) {
     const minute = Math.floor(value / 60);

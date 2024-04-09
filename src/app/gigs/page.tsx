@@ -5,9 +5,9 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
-import { GigCard } from "@/components/GigCard";
-
 import { events } from "@/data/events";
+
+import { GigCard } from "@/components/GigCard";
 
 export default function Page() {
   const futureEvents = events.filter((event) => {

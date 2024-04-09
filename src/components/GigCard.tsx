@@ -43,7 +43,6 @@ export const GigCard = ({
           }}
           alt={title}
           image={`/${imageSource}`}
-          // allow="fullscreen"
         />
         <CardContent sx={{ p: { xs: 0, md: 1 }, px: { xs: 0, md: 2 } }}>
           <Typography

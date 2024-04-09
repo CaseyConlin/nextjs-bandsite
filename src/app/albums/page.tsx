@@ -3,8 +3,9 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
-import { InteriorImageCard } from "@/components/InteriorImageCard";
 import { albums } from "@/data/albums";
+
+import { InteriorImageCard } from "@/components/InteriorImageCard";
 
 export default function Page() {
   return (

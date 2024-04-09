@@ -4,7 +4,7 @@ const apiUrl = "https://www.googleapis.com/youtube/v3";
 const channelID = "UCJzQ4krap2qE6JBMbS_IRmg";
 const playlistID = "UUJzQ4krap2qE6JBMbS_IRmg";
 
-import { videoItemType, videos } from "@/data/videos";
+import { videos } from "@/data/videos";
 // const playlistID = "UUpRmvjdu3ixew5ahydZ67uA";
 // const playlistID = "UU6lim77xHQQ9Tio9e_ydxEw"; //test channelID with addtional videos
 export type videoResponseItemType = {

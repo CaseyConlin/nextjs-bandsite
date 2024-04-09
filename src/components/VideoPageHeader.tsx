@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Box from "@mui/material/Box";
+
 import { LinkButton } from "./ui/LinkButton";
 
 export type VideoPageHeaderProps = {
