@@ -7,12 +7,15 @@ export const nextConfig = {
   },
   trailingSlash: true,
 };
+/**
+ * script-src 'self' 'unsafe-eval' 'unsafe-inline';
+ * */
 
 export default nextConfig;
 const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline';
+    script-src 'self';
+    style-src 'self' ;
     img-src 'self' blob: data:;
     font-src 'self';
     object-src 'none';

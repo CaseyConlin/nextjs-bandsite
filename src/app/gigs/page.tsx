@@ -17,11 +17,11 @@ export const metadata = {
 
 export default function Page() {
   const futureEvents = events.filter((event) => {
-    return new Date(event.eventDate).getTime() >= Date.now();
+    return new Date(event.eventStartDate).getTime() >= Date.now();
   });
 
   const pastEvents = events.filter((event) => {
-    return new Date(event.eventDate).getTime() < Date.now();
+    return new Date(event.eventStartDate).getTime() < Date.now();
   });
 
   return (
@@ -107,7 +107,7 @@ export default function Page() {
                     link={event.title.replaceAll(/\s/g, "")}
                     title={event.title}
                     imageSource={`events/${event.imgSrc}`}
-                    date={event.eventDate}
+                    date={event.eventStartDate}
                     venue={event.venue}
                   />
                 </Grid>
@@ -168,7 +168,7 @@ export default function Page() {
                     link={event.title.replaceAll(/\s/g, "")}
                     title={event.title}
                     imageSource={`events/${event.imgSrc}`}
-                    date={event.eventDate}
+                    date={event.eventStartDate}
                     venue={event.venue}
                   />
                 </Grid>

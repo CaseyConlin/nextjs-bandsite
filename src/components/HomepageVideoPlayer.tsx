@@ -51,7 +51,7 @@ export const HomepageVideo = ({
             }}
           >
             <Typography
-              component="h3"
+              component="div"
               variant="accent"
               style={{
                 fontSize: "1.8rem",
