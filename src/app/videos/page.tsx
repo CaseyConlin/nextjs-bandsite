@@ -1,6 +1,5 @@
 // "use client";
 
-import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
 import { VideoPageHeader } from "@/components/VideoPageHeader";
 import { VideoCardContainer } from "@/components/VideoCardContainer";

@@ -7,6 +7,12 @@ import { albums } from "@/data/albums";
 
 import { InteriorImageCard } from "@/components/InteriorImageCard";
 
+export const metadata = {
+  title: "Albums & Discograpy",
+  description:
+    "Albums & discography for Americana, country, folk, indie musician, Mark Brown.",
+};
+
 export default function Page() {
   return (
     <>

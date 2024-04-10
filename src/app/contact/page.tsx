@@ -10,6 +10,12 @@ import IconButton from "@mui/material/IconButton";
 import { YouTube } from "@mui/icons-material";
 import { FacebookRounded } from "@mui/icons-material";
 
+export const metadata = {
+  title: "Contact",
+  description:
+    "Contact page and social media profiles for Americana, country, folk, indie musician, Mark Brown.",
+};
+
 export default function Page() {
   return (
     <Container maxWidth="xl">

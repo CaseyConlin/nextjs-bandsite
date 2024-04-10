@@ -6,6 +6,12 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
+export const metadata = {
+  title: "Biography",
+  description:
+    "Info about Mark Brown, musician playing Americana, country, folk, and indie music.",
+};
+
 export default function Page() {
   return (
     <Container maxWidth="xl">

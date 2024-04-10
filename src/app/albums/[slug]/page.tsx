@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";

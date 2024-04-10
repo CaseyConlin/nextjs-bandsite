@@ -14,7 +14,8 @@ import { NavBar } from "@/components/ui/NavBar";
 
 export const metadata: Metadata = {
   title: "Mark Brown",
-  description: "Folk Americana Country Indie Musician in Ulster County, NY",
+  description:
+    "Mark Brown is an American musician based in Ulster County, NY, performing and recording Americana, folk, country, & indie music.",
 };
 
 export default function RootLayout({

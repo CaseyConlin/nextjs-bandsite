@@ -9,6 +9,12 @@ import { events } from "@/data/events";
 
 import { GigCard } from "@/components/GigCard";
 
+export const metadata = {
+  title: "Gigs & Events",
+  description:
+    "Events and performances in America and England for Americana, country, folk, indie musician, Mark Brown.",
+};
+
 export default function Page() {
   const futureEvents = events.filter((event) => {
     return new Date(event.eventDate).getTime() >= Date.now();

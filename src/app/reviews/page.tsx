@@ -6,6 +6,12 @@ import { reviews } from "@/data/reviews";
 
 import { ReviewCard } from "@/components/ReviewCard";
 
+export const metadata = {
+  title: "Reviews",
+  description:
+    "Reviews for Mark Brown's Americana music albums and performances.",
+};
+
 const ReviewsPage = () => {
   return (
     <Container maxWidth="xl">
