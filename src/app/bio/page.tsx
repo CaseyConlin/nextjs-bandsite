@@ -28,8 +28,8 @@ export default function Page() {
         container
         sx={{
           m: { xs: 1, sm: 2 },
-          p: 2,
-          py: 3,
+
+          py: { xs: 1, md: 3 },
           maxWidth: { xs: "xs", md: "xl" },
           borderRadius: "25px",
           backgroundColor: "rgba(255,255,255,85%)",
@@ -41,7 +41,6 @@ export default function Page() {
             position="relative"
             width="100%"
             component="div"
-            height="100px"
             sx={{ height: { xs: "250px", sm: "50vh", lg: "100%" } }}
           >
             <Image
@@ -54,7 +53,7 @@ export default function Page() {
             ></Image>
           </Box>
         </Grid2>
-        <Grid2 xs={12} sm={6} lg={9}>
+        <Grid2 xs={12} sm={6} lg={9} sx={{ px: { xs: 1, sm: 2 } }}>
           <Box component="div">
             <Typography pb={2}>
               Meet{" "}
@@ -84,8 +83,8 @@ export default function Page() {
               memories. But now, he&apos;s exploring his solo sound with a
               backing band of both longtime collaborators and newfound friends.
               Together, they create a musical tapestry that paints vivid scenes
-              of dusty roads, tarpaper shacks, and the lingering scent of hay.
-              In his latest album,{" "}
+              of back roads, beat-up shacks, and a can of beer. In his latest
+              album,{" "}
               <Link
                 href="/albums/happyhour"
                 style={{ textDecoration: "underline" }}
@@ -95,8 +94,9 @@ export default function Page() {
               , Mark&apos;s distinctive voice is accompanied by the pedal-steel
               magic of Fooch Fischetti, the steady bass lines of John Hughes,
               and the versatile talents of Dean Jones. When they play, it&apos;s
-              as if time stands still, transporting listeners to a simpler era
-              where music was the heartbeat of everyday life.
+              as if time stands still, transporting listeners to that simpler
+              era we all grasp for, when music was the heartbeat of our everyday
+              life.
             </Typography>
             <Typography pb={2}>
               Beyond the studio and stage, Mark takes his music{" "}

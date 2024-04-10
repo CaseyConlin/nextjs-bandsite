@@ -153,7 +153,7 @@ export const NavBar = () => {
                   onClick={handleCloseNavMenu}
                   sx={{
                     my: 2,
-                    mx: 2,
+                    mx: { md: 1, lg: 2 },
                     fontSize: "1.25rem",
                     textTransform: "capitalize",
                     color: pathName === "/" ? "black" : "white",
@@ -189,7 +189,7 @@ export const NavBar = () => {
                   textShadow:
                     "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)",
                   textDecoration: "none",
-                  mx: 5,
+                  mx: { md: 3, lg: 5 },
                 }}
               >
                 Mark Brown
@@ -211,7 +211,7 @@ export const NavBar = () => {
                     fontSize: "1.25rem",
                     textTransform: "capitalize",
                     my: 2,
-                    mx: 2,
+                    mx: { md: 1, lg: 2 },
                     color: pathName === "/" ? "black" : "white",
                     display: "block",
                   }}

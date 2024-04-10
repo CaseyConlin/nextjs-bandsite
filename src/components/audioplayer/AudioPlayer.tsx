@@ -9,6 +9,7 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Box from "@mui/material/Box";
 
 import { music } from "@/data/music";
+import { albums } from "@/data/albums";
 
 import { TrackListItem } from "./trackListItem";
 import { StreamingStack } from "../ui/StreamingStack";
@@ -18,7 +19,7 @@ import { TrackControls } from "./TrackControls";
 import { TrackInfoContainer } from "./TrackInfoContainer";
 import { LinearLoading } from "../ui/LinearLoading";
 
-import { setDurations } from "@/utilities/utilities";
+// import { setDurations } from "@/utilities/utilities";
 
 const Widget = emotionStyled("div")(({ theme }) => ({
   //   padding: 16,
@@ -66,15 +67,22 @@ export const AudioPlayer = ({
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const trackListItemRef = useRef<HTMLDivElement>(null);
+
   const tracks = music.filter((track) => {
     return track.album == album;
   });
 
+  const albumLinks = albums.find((linkAlbum) => {
+    return linkAlbum.title == album;
+  });
+
+  const links = albumLinks?.links ? albumLinks.links : undefined;
+
   useEffect(() => {
-    setDurations(tracks).then((res) => {
-      setTrackList(res);
-    });
-    durationHandler();
+    // setDurations(tracks).then((res) => {
+    setTrackList(tracks);
+    // });
+    // durationHandler();
   }, []);
 
   const playPauseHandler = () => {
@@ -203,6 +211,7 @@ export const AudioPlayer = ({
       >
         <Grid
           container
+          maxWidth={"xl"}
           columnSpacing={3}
           sx={{
             display: "flex",
@@ -221,7 +230,7 @@ export const AudioPlayer = ({
             alignItems: "stretch",
             backgroundColor: "rgba(255, 255, 255, 0.93)",
             backdropFilter: "blur(40px)",
-            height: { xs: "60vh", sm: "40vh", md: "60vh" },
+            height: { xs: "60vh", sm: "480px" },
           }}
         >
           <Grid
@@ -264,7 +273,7 @@ export const AudioPlayer = ({
                 volumeValue={volume}
                 volumeHandler={volumeHandler}
               />
-              <StreamingStack />
+              {links && <StreamingStack links={links} />}
             </Widget>
           </Grid>
           <Grid

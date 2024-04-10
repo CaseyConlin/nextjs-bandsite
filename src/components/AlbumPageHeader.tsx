@@ -11,12 +11,20 @@ export type AlbumPageHeaderProps = {
   title: string;
   description: string[];
   imageSource: string;
+  links?: {
+    appleMusicLink?: string;
+    amazonMusicLink?: string;
+    spotifyLink?: string;
+    pandoraLink?: string;
+    cdLink?: string;
+  };
 };
 
 export const AlbumPageHeader = ({
   title,
   description,
   imageSource,
+  links,
 }: AlbumPageHeaderProps) => {
   return (
     <>
@@ -33,7 +41,14 @@ export const AlbumPageHeader = ({
           flexDirection="row"
           sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
         >
-          <Grid md={5} p={4} display="flex" justifyContent="center">
+          <Grid
+            md={5}
+            display="flex"
+            justifyContent="center"
+            alignContent="flex-start"
+            flexWrap="wrap"
+            sx={{ px: { xs: 1, md: 4 }, py: { xs: 1, sm: 2 } }}
+          >
             <CardMedia
               component="img"
               image={`/${imageSource}`}
@@ -41,13 +56,15 @@ export const AlbumPageHeader = ({
               sx={{
                 borderRadius: "25px",
                 width: "100%",
-                my: { xs: 2, md: 0 },
+                my: { xs: 0, md: 0 },
+                p: 2,
+                objectFit: "contain",
               }}
             />
           </Grid>
           <Grid md={7}>
             <CardContent sx={{ textAlign: { xs: "center", md: "left" } }}>
-              <Box py={2}>
+              <Box sx={{ py: { xs: 0, sm: 2 } }}>
                 {description &&
                   description.map((desc, i) => {
                     return (
@@ -64,7 +81,7 @@ export const AlbumPageHeader = ({
                     );
                   })}
               </Box>
-              <StreamingStack left={true} />
+              {links && <StreamingStack links={links} />}
             </CardContent>
           </Grid>
         </Grid>

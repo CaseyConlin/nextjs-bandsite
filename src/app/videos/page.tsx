@@ -14,6 +14,7 @@ export type ChannelDataType = {
   profileTitle: string;
   profileImage: string;
 };
+
 const VideosPage = () => {
   const [videoData, setVideoData] = useState<VideoPlayerProps[] | undefined>();
   const [channelData, setChannelData] = useState<ChannelDataType | undefined>();
@@ -41,8 +42,8 @@ const VideosPage = () => {
       </Typography>
       {channelData && (
         <VideoPageHeader
-          profileTitle={channelData?.profileTitle}
-          profileImage={channelData?.profileImage}
+          profileTitle={channelData.profileTitle}
+          profileImage={channelData.profileImage}
           text={
             "Step into a virtual barnyard of musical bliss, where the sun-kissed fields echo with the heartfelt tunes of acoustic guitars and electric bass. On our channel, you'll find a cozy collection of live performances and music videos, each one a journey through the rolling hills of Americana soundscapes. Sway to the rhythm of our down-home ballads and foot-stomping anthems, as we whisk you away to a simpler time where the whiskey flows and the stories run deep. From intimate live sessions beneath the starlit sky to captivating music videos set against breathtaking landscapes, every note is a testament to the authenticity of our craft. So grab your favorite pair of boots, kick back, and let the twang of our strings and the warmth of our voices envelop you in the comforting embrace of country music's timeless embrace."
           }

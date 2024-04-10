@@ -24,7 +24,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
       component="article"
       sx={{
         m: { xs: 1, sm: 2 },
-        p: 2,
+
         maxWidth: { xs: "xs", md: "xl" },
         borderRadius: "25px",
         backgroundColor: "rgba(255,255,255,85%)",
@@ -33,7 +33,12 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
       <a id={`#${review.id}`}></a>
       {review.reviewerImageSrc && (
         <CardMedia
-          sx={{ ml: 2, width: 150, height: 150, borderRadius: "25px" }}
+          sx={{
+            ml: { xs: 1, sm: 2 },
+            width: 150,
+            height: 150,
+            borderRadius: "25px",
+          }}
           image={`/${review.reviewerImageSrc}`}
           title={`${review.reviewer} logo`}
         />

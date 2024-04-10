@@ -33,7 +33,7 @@ export default function NotFound() {
         }}
       >
         <Typography fontWeight="600" fontSize="1.25rem" mt={2}>
-          We don't have a page at this address.
+          We don&apos;t have a page at this address.
         </Typography>
         <Typography fontSize="1.25rem" mt={2}>
           Maybe head back to the home page and start over.

@@ -22,6 +22,9 @@ export default function Page({ params }: { params: { slug: string } }) {
   const reviewData = reviews.filter((review) => {
     return review.album.toLowerCase() == params.slug;
   });
+
+  const links = albumData?.links ? albumData.links : undefined;
+
   return (
     <Container maxWidth="xl">
       <Typography
@@ -43,6 +46,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           title={albumData.title}
           description={albumData.description}
           imageSource={albumData.image}
+          links={links}
         />
       )}
 

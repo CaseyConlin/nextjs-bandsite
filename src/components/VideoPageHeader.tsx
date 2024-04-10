@@ -44,7 +44,7 @@ export const VideoPageHeader = ({
             <CardMedia
               component="img"
               height="200px"
-              image={profileImage}
+              src={profileImage}
               alt={profileTitle}
               sx={{ borderRadius: "50%", width: 200, my: { xs: 2, md: 0 } }}
             />

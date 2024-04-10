@@ -11,29 +11,6 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { albumReviewType, reviews } from "@/data/reviews";
 
-// const images = [
-//   {
-//     label: "San Francisco – Oakland Bay Bridge, United States",
-//     imgPath:
-//       "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
-//   },
-//   {
-//     label: "Bird",
-//     imgPath:
-//       "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
-//   },
-//   {
-//     label: "Bali, Indonesia",
-//     imgPath:
-//       "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250",
-//   },
-//   {
-//     label: "Goč, Serbia",
-//     imgPath:
-//       "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
-//   },
-// ];
-
 export type ReviewSliderProps = {
   albumTitle: string;
   albumReviews: albumReviewType[];
@@ -43,7 +20,7 @@ export const SwipeableTextMobileStepper = ({
   albumReviews,
 }: ReviewSliderProps) => {
   const [activeStep, setActiveStep] = useState(0);
-  //   const maxSteps = images.length;
+
   const maxSteps = albumReviews.length;
 
   const handleNext = () => {
@@ -54,12 +31,11 @@ export const SwipeableTextMobileStepper = ({
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleStepChange = (step: number) => {
-    setActiveStep(step);
-  };
+  // const handleStepChange = (step: number) => {
+  //   setActiveStep(step);
+  // };
 
   return (
-    // <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
     <Box
       component="div"
       sx={{
@@ -72,19 +48,12 @@ export const SwipeableTextMobileStepper = ({
       }}
     >
       <Paper
-        // square
         elevation={0}
         sx={{
           display: "flex",
           alignItems: "flex-start",
           flexDirection: "column",
           borderRadius: "25px",
-          //   margin: 0,
-          //   padding: 0,
-
-          //   height: 50,
-          //   pl: 2,
-
           p: 2,
           pb: 0,
         }}

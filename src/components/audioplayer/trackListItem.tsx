@@ -2,12 +2,12 @@ import { forwardRef } from "react";
 import Typography from "@mui/material/Typography";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { Box } from "@mui/material";
-import { track } from "./AudioPlayer";
+import { trackType } from "./AudioPlayer";
 import { roboto } from "../../app/fonts";
 import VolumeUpRounded from "@mui/icons-material/VolumeUpRounded";
 
 type TrackListProps = {
-  track: track;
+  track: trackType;
   trackPlaying: boolean;
   currentTrack: boolean;
   onclick: (track: number) => void;
@@ -35,19 +35,14 @@ export const TrackListItem = forwardRef(function TrackListItem(
         {currentTrack && <Box ref={ref} />}
         {trackPlaying ? <VolumeUpRounded sx={{ fontSize: "1.25rem" }} /> : ""}
       </Grid2>
-      <Grid2 sm={5}>
+      <Grid2 sm={6}>
         <Typography fontSize=".875rem" className={roboto.className}>
           {track.songName}
         </Typography>
       </Grid2>
-      <Grid2 sm={4} sx={{ textAlign: "center" }}>
+      <Grid2 sm={5} sx={{ textAlign: "center" }}>
         <Typography fontSize=".875rem" className={roboto.className}>
           {track.album}
-        </Typography>
-      </Grid2>
-      <Grid2 sm={2} sx={{ textAlign: "right" }}>
-        <Typography fontSize=".875rem" className={roboto.className}>
-          {track.duration}
         </Typography>
       </Grid2>
     </Grid2>

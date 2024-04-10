@@ -44,7 +44,7 @@ export const GigCard = ({
           alt={title}
           image={`/${imageSource}`}
         />
-        <CardContent sx={{ p: { xs: 0, md: 1 }, px: { xs: 0, md: 2 } }}>
+        <CardContent sx={{ p: { xs: 0, md: 1 }, px: { xs: 1, md: 2 } }}>
           <Typography
             component="h2"
             variant="accent"
