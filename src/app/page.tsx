@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+
 import { HomepageHero } from "@/components/HomepageHero";
 import { HomepageTextSection } from "@/components/HomepageTextSection";
 import { HomepageVideo } from "@/components/HomepageVideoPlayer";
@@ -9,6 +10,7 @@ const Home = () => {
     <>
       <main className={styles.main}>
         <HomepageHero />
+
         <AudioPlayer homepage={true} />
 
         <HomepageTextSection />

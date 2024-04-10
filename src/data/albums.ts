@@ -10,6 +10,7 @@ export type albumType = {
     pandoraLink?: string;
     cdLink?: string;
   };
+  metaDescription: string;
 };
 
 export const albums = [
@@ -20,7 +21,10 @@ export const albums = [
       "From a dance party at your local Stewart's to a short and dusted road trip, Mark Brown's latest release hits like that favorite home-cooked meal you’ve been missing for the past few years. Reuniting longtime and newfound friends, Happy Hour brings power and energy wrapped in big bass and drums and slide guitars that’ll take you by surprise along with the sweet sounds of acoustic guitars and accordion all tied together with Mark’s honest lyrics which he serves up as lead vocalist moving smoothly from gritty to melodic as you’ve come to expect.",
     ],
     image: "markbrownhappyhourcover.webp",
+    metaDescription:
+      "Mark Brown's Happy Hour album is a journey over country roads, blending folk melodies with honest lyrics capturing the essence of Americana.",
   },
+
   {
     slug: "skinandbones",
     title: "Skin & Bones",
@@ -38,6 +42,8 @@ export const albums = [
         "https://www.pandora.com/artist/mark-brown/skin-and-bones/ALcmX7h6hdcxmVK",
       cdLink: "https://www.amazon.com/dp/B017AEZ2GU/ref=dm_rwp_pur_lnd_albm_fr",
     },
+    metaDescription:
+      "Mark Brown's Skin & Bones album is a hauntingly beautiful blend of Americana, weaving tales of love, loss, and redemption with raw acoustic melodies.",
   },
   {
     slug: "unclebuckle",
@@ -57,5 +63,7 @@ export const albums = [
       cdLink:
         "https://www.amazon.com/Uncle-Buckle-Mark-Brown/dp/B000FTKU60/ref=sr_1_1?crid=EHDEKPQB9I1C&dib=eyJ2IjoiMSJ9.5y8RGAqw3TrYYEjVg8lgbPlG-ieHM3YnzE2oOV8cXyQwBAamToZ6VbeZHjSmu2rHGcjxfMB7B2gxk3tqJsy8Fw.83ZIU1lmga0XFx53xVrCBQ3AYI7_qcnKX-nNkrTavlE&dib_tag=se&keywords=uncle+buckle&qid=1712696525&s=music&sprefix=uncle+buckle%2Cpopular%2C103&sr=1-1",
     },
+    metaDescription:
+      "Mark Brown's Uncle Buckle album is raw Americana spirit infused with gritty storytelling, echoing the timeless sounds of country, blues, and folk.",
   },
 ];

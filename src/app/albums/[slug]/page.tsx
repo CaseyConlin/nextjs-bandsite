@@ -1,3 +1,5 @@
+import type { Metadata, ResolvingMetadata } from "next";
+
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import SwipeableTextMobileStepper from "@/components/ui/reviewSlider/ReviewSlider";
@@ -12,6 +14,30 @@ export async function generateStaticParams() {
   return albums.map((album: albumType) => ({
     slug: album.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  // read route params
+  const id = params.slug;
+
+  const albumData = albums.find((album) => {
+    return album.slug == id;
+  });
+
+  // optionally access and extend (rather than replace) parent metadata
+  // const previousImages = (await parent).openGraph?.images || []
+
+  return {
+    title: albumData?.title,
+    description: albumData?.metaDescription,
+    // openGraph: {
+    //   images: ['/some-specific-page-image.jpg', ...previousImages],
+    // },
+  };
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
