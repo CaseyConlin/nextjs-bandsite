@@ -205,6 +205,7 @@ export const AudioPlayer = ({
           display: "flex",
           justifyContent: "center",
           background: homepage ? "#27221D" : "",
+          // position: "relative",
 
           // height: { xs: "50vh", sm: "50vh", md: "25vh" },
         }}
@@ -218,11 +219,12 @@ export const AudioPlayer = ({
             justifyContent: "space-between",
             maxWidth: "1230px",
             padding: { xs: 1, sm: 3 },
+            zIndex: 12,
             //   height: "527px",
             width: "100%",
             overflow: "hidden",
             borderRadius: "25px",
-            marginTop: homepage ? "-100px" : "",
+            marginTop: homepage ? "-30px" : "",
             position: "relative",
             //   maxHeight: "60vh",
             // alignItems: "center",

@@ -1,15 +1,25 @@
+import type { Metadata } from "next";
+import { HomepageHeroParallax } from "@/components/HomepageHeroParallax";
 import styles from "./page.module.css";
 
 import { HomepageHero } from "@/components/HomepageHero";
+
 import { HomepageTextSection } from "@/components/HomepageTextSection";
 import { HomepageVideo } from "@/components/HomepageVideoPlayer";
 import { AudioPlayer } from "@/components/audioplayer/AudioPlayer";
+
+export const metadata: Metadata = {
+  title: "Mark Brown",
+  description:
+    "Mark Brown is an American musician based in Ulster County, NY, performing and recording Americana, folk, country, & indie music.",
+};
 
 const Home = () => {
   return (
     <>
       <main className={styles.main}>
-        <HomepageHero />
+        {/* <HomepageHero /> */}
+        <HomepageHeroParallax />
 
         <AudioPlayer homepage={true} />
 

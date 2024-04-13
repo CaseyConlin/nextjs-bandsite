@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, MouseEvent } from "react";
+import { useState, useEffect, useContext, MouseEvent } from "react";
+import { NavMenuContext } from "../context/navMenuContext";
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -13,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import MenuItem from "@mui/material/MenuItem";
-
+import { Slide } from "@mui/material";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 
 const pagesLeft = [
@@ -29,6 +30,9 @@ const pagesRight = [
 
 export const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
+  const { hideNavState } = useContext(NavMenuContext);
+
   const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -39,191 +43,203 @@ export const NavBar = () => {
 
   const pathName = usePathname();
   return (
-    <AppBar
-      position="absolute"
-      sx={{
-        mt: 5,
-        bgcolor: pathName === "/" ? "transparent" : "rgba(0,0,0,50%)",
-        boxShadow: "none",
+    <Slide
+      direction="down"
+      in={!hideNavState}
+      appear={false}
+      easing={{
+        enter: "linear",
+        exit: "linear",
       }}
     >
-      <Grid
-        container
-        sx={{ display: "flex", justifyContent: "center", width: "100vw" }}
+      <AppBar
+        position="absolute"
+        sx={{
+          mt: 5,
+          bgcolor: pathName === "/" ? "transparent" : "rgba(0,0,0,50%)",
+          boxShadow: "none",
+          // display: hideNavState ? "none" : "block",
+        }}
       >
-        <Toolbar
-          disableGutters
-          sx={{ display: "flex", justifyContent: "center" }}
+        <Grid
+          container
+          position="relative"
+          sx={{ display: "flex", justifyContent: "center", width: "100vw" }}
         >
-          <Typography
-            variant="accent"
-            noWrap
-            sx={{
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              fontSize: "2rem",
-              textAlign: "center",
-              color: "#E2B164",
-              textShadow:
-                "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)",
-              textDecoration: "none",
-            }}
+          <Toolbar
+            disableGutters
+            sx={{ display: "flex", justifyContent: "center" }}
           >
-            <Link href="/">Mark Brown</Link>
-          </Typography>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "flex", md: "none", right: "0" },
-            }}
-          >
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              sx={{ color: "#E2B164" }}
-            >
-              <MenuOpenIcon sx={{ fontSize: "2rem" }} />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorReference="none"
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+            <Typography
+              variant="accent"
+              noWrap
               sx={{
-                display: {
-                  xs: "block",
-                  md: "none",
-                  "& .MuiPopover-paper": {
-                    right: 0,
-                    width: "50vw",
-                    borderRadius: "0px",
-                    borderBottomLeftRadius: "10px",
-                  },
-                },
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                fontSize: "2rem",
+                textAlign: "center",
+                color: "#E2B164",
+                textShadow:
+                  "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)",
+                textDecoration: "none",
               }}
             >
-              {pagesLeft.map((page) => (
-                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
-                    <Link href={`/${page.link}`}>{page.name}</Link>
-                  </Typography>
-                </MenuItem>
-              ))}
-              {pagesRight.map((page) => (
-                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
-                    <Link href={`/${page.link}`}>{page.name}</Link>
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-
-          <Grid
-            container
-            sx={{
-              display: { xs: "none", md: "flex" },
-              justifyContent: "center",
-              width: "100vw",
-            }}
-          >
-            <Grid
-              xs={4}
+              <Link href="/">Mark Brown</Link>
+            </Typography>
+            <Box
               sx={{
-                display: { xs: "none", md: "flex" },
-                justifyContent: "flex-end",
+                flexGrow: 1,
+                display: { xs: "flex", md: "none", right: "0" },
               }}
             >
-              {pagesLeft.map((page) => (
-                <Typography
-                  variant="accent"
-                  key={page.name}
-                  onClick={handleCloseNavMenu}
-                  sx={{
-                    my: 2,
-                    mx: { md: 1, lg: 2 },
-                    fontSize: "1.25rem",
-                    textTransform: "capitalize",
-                    color: pathName === "/" ? "black" : "white",
-                    display: "block",
-                  }}
-                >
-                  <Link href={`/${page.link}`}>{page.name}</Link>
-                </Typography>
-              ))}
-            </Grid>
-            <Grid
-              xs="auto"
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Typography
-                variant="accent"
-                noWrap
-                component="a"
-                href="/"
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                sx={{ color: "#E2B164" }}
+              >
+                <MenuOpenIcon sx={{ fontSize: "2rem" }} />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorReference="none"
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
                 sx={{
                   display: {
-                    xs: "none",
-                    md: "flex",
+                    xs: "block",
+                    md: "none",
+                    "& .MuiPopover-paper": {
+                      right: 0,
+                      width: "50vw",
+                      borderRadius: "0px",
+                      borderBottomLeftRadius: "10px",
+                    },
                   },
-                  fontSize: { md: "2.5rem", xl: "3.5rem" },
-                  textAlign: "center",
-                  color: "#E2B164",
-                  textShadow:
-                    "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)",
-                  textDecoration: "none",
-                  mx: { md: 3, lg: 5 },
                 }}
               >
-                Mark Brown
-              </Typography>
-            </Grid>
+                {pagesLeft.map((page) => (
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">
+                      <Link href={`/${page.link}`}>{page.name}</Link>
+                    </Typography>
+                  </MenuItem>
+                ))}
+                {pagesRight.map((page) => (
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">
+                      <Link href={`/${page.link}`}>{page.name}</Link>
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+
             <Grid
-              xs={4}
+              container
               sx={{
                 display: { xs: "none", md: "flex" },
-                justifyContent: "flex-start",
+                justifyContent: "center",
+                width: "100vw",
               }}
             >
-              {pagesRight.map((page) => (
+              <Grid
+                xs={4}
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  justifyContent: "flex-end",
+                }}
+              >
+                {pagesLeft.map((page) => (
+                  <Typography
+                    variant="accent"
+                    key={page.name}
+                    onClick={handleCloseNavMenu}
+                    sx={{
+                      my: 2,
+                      mx: { md: 1, lg: 2 },
+                      fontSize: "1.25rem",
+                      textTransform: "capitalize",
+                      color: pathName === "/" ? "black" : "white",
+                      display: "block",
+                    }}
+                  >
+                    <Link href={`/${page.link}`}>{page.name}</Link>
+                  </Typography>
+                ))}
+              </Grid>
+              <Grid
+                xs="auto"
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <Typography
                   variant="accent"
-                  key={page.name}
-                  onClick={handleCloseNavMenu}
+                  noWrap
+                  component="a"
+                  href="/"
                   sx={{
-                    fontSize: "1.25rem",
-                    textTransform: "capitalize",
-                    my: 2,
-                    mx: { md: 1, lg: 2 },
-                    color: pathName === "/" ? "black" : "white",
-                    display: "block",
+                    display: {
+                      xs: "none",
+                      md: "flex",
+                    },
+                    fontSize: { md: "2.5rem", xl: "3.5rem" },
+                    textAlign: "center",
+                    color: "#E2B164",
+                    textShadow:
+                      "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)",
+                    textDecoration: "none",
+                    mx: { md: 3, lg: 5 },
                   }}
                 >
-                  <Link href={`/${page.link}`}>{page.name}</Link>
+                  Mark Brown
                 </Typography>
-              ))}
+              </Grid>
+              <Grid
+                xs={4}
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  justifyContent: "flex-start",
+                }}
+              >
+                {pagesRight.map((page) => (
+                  <Typography
+                    variant="accent"
+                    key={page.name}
+                    onClick={handleCloseNavMenu}
+                    sx={{
+                      fontSize: "1.25rem",
+                      textTransform: "capitalize",
+                      my: 2,
+                      mx: { md: 1, lg: 2 },
+                      color: pathName === "/" ? "black" : "white",
+                      display: "block",
+                    }}
+                  >
+                    <Link href={`/${page.link}`}>{page.name}</Link>
+                  </Typography>
+                ))}
+              </Grid>
             </Grid>
-          </Grid>
-        </Toolbar>
-      </Grid>
-    </AppBar>
+          </Toolbar>
+        </Grid>
+      </AppBar>
+    </Slide>
   );
 };
 export default NavBar;

@@ -114,34 +114,6 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  homepage-hero-container {
-    /* position: absolute;
-    width: 100vw;
-    height: 1433px; */
-    left: 0px;
-    top: 0px;
-
-    background: #ffffff;
-  }
-  homepage-header {
-    /* Homepage Header */
-
-    /* markbrownhappyhourcovernotext 1 */
-
-    position: absolute;
-    width: 100vw;
-    height: 100vw;
-    left: 0px;
-    top: 0px;
-    left: 0px;
-    background: url(/uncle-buckle/public/markbrownhappyhourcovernotext.webp);
-  }
-}
-
 .accent-font {
   font-family: "Black Han Sans";
 }
