@@ -224,7 +224,7 @@ export const AudioPlayer = ({
             width: "100%",
             overflow: "hidden",
             borderRadius: "25px",
-            marginTop: homepage ? "-30px" : "",
+            marginTop: homepage ? { sm: "-40vh", lg: 0 } : "",
             position: "relative",
             //   maxHeight: "60vh",
             // alignItems: "center",

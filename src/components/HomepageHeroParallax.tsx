@@ -1,7 +1,14 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef, useState, useContext } from "react";
+
 import Box from "@mui/material/Box";
+
 import { NavMenuContext } from "./context/navMenuContext";
+
+import backgroundLayer from "../../public/background-layer-1.webp";
+import midLayer from "../../public/mid-layer-1.webp";
+import markLayer from "../../public/mark-layer-1.webp";
 
 export const HomepageHeroParallax = () => {
   const { setHideNavState } = useContext(NavMenuContext);
@@ -63,7 +70,6 @@ export const HomepageHeroParallax = () => {
         overflowY: "auto",
         overflowX: "hidden",
         background: "#27221D",
-        mb: -2,
       }}
       ref={ref}
     >
@@ -72,7 +78,6 @@ export const HomepageHeroParallax = () => {
         component="div"
         sx={{
           position: "absolute",
-
           top: 0,
           right: 0,
           bottom: 0,
@@ -86,9 +91,13 @@ export const HomepageHeroParallax = () => {
 
           // height: "100rem",
           // height: "10vh",
-          width: "100vw",
-          minHeight: "100vh",
+          width: { xs: "200vw", sm: "100vw" },
+          minHeight: "50vh",
+          // height: "100vh",
+          marginLeft: { xs: "-50vw", sm: 0 },
           height: "100vh",
+          marginBottom: -5,
+
           // width: "100vw",
           // height: { xs: "100vh", md: "200vh" },
           // objectFit: "cover",
@@ -97,10 +106,16 @@ export const HomepageHeroParallax = () => {
           // backgroundPosition: "top center ",
         }}
       >
-        <img
-          src="/background-layer-1.webp"
-          style={{ width: "100%", height: "auto" }}
+        <Image
+          src={backgroundLayer}
+          alt="Scenic background at country landfill."
+          layout="responsive"
+          objectFit="cover"
         />
+        {/* <img
+          src="/background-layer-1.webp"
+          style={{ marginLeft: "-50vw", width: "200vw", height: "auto" }}
+        /> */}
       </Box>
       <Box
         //TRASH
@@ -115,6 +130,10 @@ export const HomepageHeroParallax = () => {
           bottom: 0,
           left: 0,
           transform: "translateZ(100px)",
+          width: { xs: "200vw", sm: "100vw" },
+          marginLeft: { xs: "-50vw", sm: 0 },
+          height: "50vh",
+
           // transformStyle: "preserve-3d",
           // backgroundColor: "green",
           // backgroundImage: `url(/Midground.webp)`,
@@ -129,17 +148,29 @@ export const HomepageHeroParallax = () => {
           // width: "100vw",
         }}
       >
-        <img
-          src="/mid-layer-1.webp"
-          style={{ width: "100vw", height: "auto" }}
+        <Image
+          src={midLayer}
+          alt="Scenic background at country landfill."
+          layout="responsive"
+          objectFit="cover"
         />
+        {/* <img
+          src="/mid-layer-1.webp"
+          style={{
+            marginLeft: "-50vw",
+            width: "200vw",
+
+            height: "auto",
+          }}
+        /> */}
       </Box>
       <Box
         // MARK
         component="div"
         sx={{
           position: "absolute",
-          top: 100,
+          // top: 100,
+          top: { xs: 60, sm: 80 },
           // top: 0,
           right: 0,
           bottom: 0,
@@ -155,12 +186,26 @@ export const HomepageHeroParallax = () => {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "top center",
           // overflowY: "auto",
+          height: "50vh",
+          width: { xs: "200vw", sm: "100vw" },
+          marginLeft: { xs: "-50vw", sm: 0 },
         }}
       >
-        <img
+        {/* <img
           src="/mark-layer.webp"
-          style={{ width: "100vw", height: "auto", objectFit: "cover" }}
+          style={{
+            marginLeft: "-50vw",
+            width: "200vw",
+            height: "auto",
+            objectFit: "cover",
+          }}
           alt="Mark Brown"
+        /> */}
+        <Image
+          src={markLayer}
+          alt="Mark Brown, country / Americana singer at country landfill."
+          layout="responsive"
+          objectFit="cover"
         />
       </Box>
     </Box>
