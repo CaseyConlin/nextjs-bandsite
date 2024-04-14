@@ -10,11 +10,11 @@ export const music = [
   },
   {
     trackNum: 2,
-    songName: "Happy Hour",
+    songName: "Davenport",
     album: "Happy Hour",
     albumCover: "markbrownhappyhourcover.webp",
     artist: "Mark Brown",
-    file: "happy_hour.mp3",
+    file: "davenport.mp3",
     duration: "0",
   },
   {
@@ -28,13 +28,14 @@ export const music = [
   },
   {
     trackNum: 4,
-    songName: "Davenport",
+    songName: "Happy Hour",
     album: "Happy Hour",
     albumCover: "markbrownhappyhourcover.webp",
     artist: "Mark Brown",
-    file: "davenport.mp3",
+    file: "happy_hour.mp3",
     duration: "0",
   },
+
   {
     trackNum: 5,
     songName: "Long Time",

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback, ChangeEvent } from "react";
-import type { InferGetStaticPropsType, GetStaticProps } from "next";
 
 import emotionStyled from "@emotion/styled";
 import Container from "@mui/material/Container";
@@ -224,7 +223,7 @@ export const AudioPlayer = ({
             width: "100%",
             overflow: "hidden",
             borderRadius: "25px",
-            marginTop: homepage ? { sm: "-40vh", lg: 0 } : "",
+            marginTop: homepage ? { xs: "-30vh", lg: 0 } : "",
             position: "relative",
             //   maxHeight: "60vh",
             // alignItems: "center",
