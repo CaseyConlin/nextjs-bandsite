@@ -1,5 +1,7 @@
 "use client";
 
+import { useContext } from "react";
+
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
@@ -8,6 +10,8 @@ import Link from "next/link";
 
 import { YouTube } from "@mui/icons-material";
 import { FacebookOutlined } from "@mui/icons-material";
+
+import { NavMenuContext } from "./context/navMenuContext";
 
 import bg from "../../public/bulldozerseaguls.webp";
 
@@ -22,6 +26,12 @@ const pagesRight = [
   { name: "Contact", link: "contact" },
 ];
 export const Footer = () => {
+  const { setHideNavState } = useContext(NavMenuContext);
+
+  const linkClickHandler = () => {
+    setHideNavState(false);
+  };
+
   return (
     <Grid
       container
@@ -76,7 +86,9 @@ export const Footer = () => {
                     display: "block",
                   }}
                 >
-                  <Link href={`/${page.link}`}>{page.name}</Link>
+                  <Link href={`/${page.link}`} onClick={linkClickHandler}>
+                    {page.name}
+                  </Link>
                 </Typography>
               ))}
             </Grid>
@@ -127,7 +139,9 @@ export const Footer = () => {
                     display: "block",
                   }}
                 >
-                  <Link href={`/${page.link}`}>{page.name}</Link>
+                  <Link href={`/${page.link}`} onClick={linkClickHandler}>
+                    {page.name}
+                  </Link>
                 </Typography>
               ))}
             </Grid>

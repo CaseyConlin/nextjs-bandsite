@@ -101,7 +101,18 @@ export const NavBar = () => {
                 onClick={handleOpenNavMenu}
                 sx={{ color: "#E2B164" }}
               >
-                <MenuOpenIcon sx={{ fontSize: "2rem" }} />
+                <MenuOpenIcon
+                  sx={{
+                    fontSize: "2rem",
+                    strokeLinecap: "round",
+
+                    filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, .99))",
+                    // "& path": {
+                    //   display: "none",
+                    // },
+                  }}
+                  // 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)
+                />
               </IconButton>
               <Menu
                 id="menu-appbar"

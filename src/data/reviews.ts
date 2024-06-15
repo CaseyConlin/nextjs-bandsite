@@ -12,6 +12,17 @@ export type albumReviewType = {
 
 export const reviews = [
   {
+    id: "2231",
+    title: "MARK BROWN – HAPPY HOUR",
+    link: "https://www.paris-move.com/reviews/mark-brown-happy-hour/",
+    reviewText: [
+      "For only his third album in an already busy life, singer-songwriter and guitarist Mark Brown delivers 14 new compositions, most of them drawn from the substantive marrow of experience. To the tongue-in-cheek humor of John Prine and the nasal and scratchy tone of Willie Nelson (as well as the hackneyed phlegm of Johnny Cash), he allows himself to add the iconoclastic truculence of our no less late Arno Hintjens. Thus the opening “Scratch” (in which he has the nerve to integrate disco sauces) and the chaotic “Davenport” (where the facetious drumming of the man named Dean Sharp leads us to think that it could be the same D-Sharpe who was active more than forty years ago with Jonathan Richman). These transgressions settled, our man returns as if nothing had happened to a few obsolete honky-waltzes as desired, in the spirit of the Kinks' “Muswell Hillbillies” (“Inertia” and “Napanoch”, with respectively pedal-steel and accordion supporting). The titular track melts down on us like the disheveled “Mojo Working” that J.J. Cale once revisited (to which “Deer Cut And Wrapped”, “The Ridge” and “God Bless Me Jesus” are also related), but this time in choral versions bar. Good-natured country nonetheless regains its rights with “Long Time”, but our man never stays still for long, as evidenced by the sinuous rumba “Gasoline Hands” (with the mutinous choruses of Katie Mullins and the organ facetious by Dean Jones). The stripped-down “Broken Glass” sounds like the distant cousin of Tom Waits from “Closing Time”, while the falsely cheerful “Acetone” evokes a Leonard Cohen in a festive mood (we're not kidding, it seems that in private he was to twist), and that “The Unanswered Prayer” concluded between Calvin Russell and Johnny Dowd. An astonishing record in more than one way: imagine Jean-Pierre Bacri accompanied by the cream of the Nashville studios…",
+    ],
+    reviewer: "PARIS-MOVE",
+    reviewerLink: "https://www.paris-move.com/",
+    album: "happyHour",
+  },
+  {
     id: "2189",
     title: "Skin & Bone Review",
     link: "http://www.puremzine.com/mark-brown-skin-and-bone/",

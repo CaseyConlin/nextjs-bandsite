@@ -21,6 +21,13 @@ export const albums = [
       "From a dance party at your local Stewart's to a short and dusted road trip, Mark Brown's latest release hits like that favorite home-cooked meal you’ve been missing for the past few years. Reuniting longtime and newfound friends, Happy Hour brings power and energy wrapped in big bass and drums and slide guitars that’ll take you by surprise along with the sweet sounds of acoustic guitars and accordion all tied together with Mark’s honest lyrics which he serves up as lead vocalist moving smoothly from gritty to melodic as you’ve come to expect.",
     ],
     image: "markbrownhappyhourcover.webp",
+    links: {
+      appleMusicLink: "https://music.apple.com/us/album/happy-hour/1737521715",
+      amazonMusicLink: "https://www.amazon.com/music/player/albums/B0CYVN6SFH",
+      spotifyLink: "https://open.spotify.com/album/3Mmvipgr38H3mfFe21X6QM",
+      pandoraLink:
+        "https://www.pandora.com/artist/mark-brown/happy-hour/ALmw4lJ6q5p6JvK",
+    },
     metaDescription:
       "Mark Brown's Happy Hour album is a journey over country roads, blending folk melodies with honest lyrics capturing the essence of Americana.",
   },

@@ -63,7 +63,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       price: eventData?.ticketCost ? eventData.ticketCost : "0",
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
-      validFrom: eventData?.added,
+      validFrom: eventData?.added ? eventData.added : eventData?.eventStartDate,
     },
     performer: {
       "@type": "PerformingGroup",
