@@ -12,14 +12,27 @@ export type albumReviewType = {
 
 export const reviews = [
   {
+    id: "2232",
+    title: "MARK BROWN: HAPPY HOUR",
+    link: "https://www.keysandchords.com/album-review-blog/mark-brown-happy-hour",
+    reviewText: [
+      "When you first listen to Mark Brown, you might find yourself wondering where he’s been and why it took him so long to get here. Combining a sharp eye with a sly sense of humor reminiscent of John Prine, Mark makes songs that hail from everywhere, incorporating ballads, cowboy songs, jigs, sideshow melodies, and field hollers. His songs give voice to craftsmen, broken-hearted mechanics, heavy equipment operators, squatters and girls with their dirt bikes. Like many of his characters, Mark’s been around: after growing up in Maryland, he’s done some farming, worked as a mechanic, spent years as a commercial fisherman in the northern Pacific and worked as a carpenter in the northeastern US. These experiences have influenced his music the way an oak cask influences good whiskey. In his latest album ‘Happy Hour’, Mark's distinctive voice is accompanied by his band of longtime friends: Ken McGloin joining in on guitar, Mark Murphy on bass, Dean Sharp on drums and the versatile talents of Dean Jones.",
+    ],
+    reviewer: "PARIS-MOVE",
+    reviewerLink: "https://www.paris-move.com/",
+    album: "happyHour",
+  },
+  {
     id: "2231",
     title: "MARK BROWN – HAPPY HOUR",
     link: "https://www.paris-move.com/reviews/mark-brown-happy-hour/",
     reviewText: [
       "For only his third album in an already busy life, singer-songwriter and guitarist Mark Brown delivers 14 new compositions, most of them drawn from the substantive marrow of experience. To the tongue-in-cheek humor of John Prine and the nasal and scratchy tone of Willie Nelson (as well as the hackneyed phlegm of Johnny Cash), he allows himself to add the iconoclastic truculence of our no less late Arno Hintjens. Thus the opening “Scratch” (in which he has the nerve to integrate disco sauces) and the chaotic “Davenport” (where the facetious drumming of the man named Dean Sharp leads us to think that it could be the same D-Sharpe who was active more than forty years ago with Jonathan Richman). These transgressions settled, our man returns as if nothing had happened to a few obsolete honky-waltzes as desired, in the spirit of the Kinks' “Muswell Hillbillies” (“Inertia” and “Napanoch”, with respectively pedal-steel and accordion supporting). The titular track melts down on us like the disheveled “Mojo Working” that J.J. Cale once revisited (to which “Deer Cut And Wrapped”, “The Ridge” and “God Bless Me Jesus” are also related), but this time in choral versions bar. Good-natured country nonetheless regains its rights with “Long Time”, but our man never stays still for long, as evidenced by the sinuous rumba “Gasoline Hands” (with the mutinous choruses of Katie Mullins and the organ facetious by Dean Jones). The stripped-down “Broken Glass” sounds like the distant cousin of Tom Waits from “Closing Time”, while the falsely cheerful “Acetone” evokes a Leonard Cohen in a festive mood (we're not kidding, it seems that in private he was to twist), and that “The Unanswered Prayer” concluded between Calvin Russell and Johnny Dowd. An astonishing record in more than one way: imagine Jean-Pierre Bacri accompanied by the cream of the Nashville studios…",
+      "Philip Verhaege",
     ],
-    reviewer: "PARIS-MOVE",
-    reviewerLink: "https://www.paris-move.com/",
+    reviewer: "Keys & Chords",
+    reviewerLink: "http://www.keysandchords.com/",
+    reviewerImageSrc: "kandc.webp",
     album: "happyHour",
   },
   {
