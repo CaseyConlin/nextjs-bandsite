@@ -12,6 +12,38 @@ export type albumReviewType = {
 
 export const reviews = [
   {
+    id: "2228",
+    title: "MARK BROWN - HAPPY HOUR",
+    link: "https://rootstime.be/index.html?https://rootstime.be/CD%20REVIEUW/2024/JUL1/CD10.html",
+    reviewText: [
+      "Anyone who has been involved in this segment of contemporary music for a while may know Mark Brown under his own name or as the frontman of the band Uncle Buckle. For those who are completely new: this Happy Hour is Mark's third album under his own name and what he brings to it is vintage Mark Brown: Americana à la Tom Waits, with an almost equally harsh abrasive voice and an observational ability that allows him to to sing about the things that take place in dark recesses, that form the core of small hamlets and special communities and that see special characters come to life.",
+      "Brown brings these subjects to life through simple but sophisticated instrumentation, where guitar, bass, drums, banjo and keys rule and where the backing vocals are as essential as the frontman's voice. With every now and then a hint of Johnny Cash-meets-Kinky Friedman-and-John-Prine mixed through the lyrics - I'm now thinking of songs like Acetone or Deer Cut and Wrapped - Mark really emphasizes his work as a fine songwriter, although you can actually say something about each of the songs. How people lose themselves in endlessly purchasing lottery tickets, for example. This is what opener Scratch is about, while Inertia tries to express how idleness can come to dominate people's lives, even if they don't want it to.",
+      "Long Time is about his addiction to rock climbing in his younger years, which is actually an exercise in fine nostalgia and the title song, with only one chord, is a particularly successful exercise in expressing the lethargy and boredom that can lead to Didn't even get dressed in time to get to the pub in time to experience the Happy Hour. The song on this particularly nice album, in my opinion, is Gasoline Hands, with a completely absurd text about what people have to hide when their hands emit the smell of gasoline. Brown himself says about this song that he assumes that the song knows what it is about, unlike the writer. So himself. Now, if you ever want to hear beautiful songs about broken love, I can wholeheartedly recommend Broken Glass. If Harry Dean Stanton hadn't already died, someone should have delivered this song to him so he could sing the final version. Anyone who can make up a song like Acetone and use that solvent to describe the evaporation of love, such a person can break a pot with me, just as I cannot listen to Unanswered Prayer without sympathizing with the young woman about whom this song goes.",
+      "Let that perhaps be my modest summary of this fine album: Mark Brown is a gifted songwriter and anyone who listens to him is inevitably touched. Not everyone is given something like that. Mark Brown urgently needs to be discovered!",
+      "(Dani Heyvaert)",
+    ],
+    reviewer: "ROOTSTIME.BE",
+    reviewerLink:
+      "https://rootstime.be/index.html?https://rootstime.be/CD%20REVIEUW/2024/JUL1/CD10.html",
+    album: "happyHour",
+  },
+  {
+    id: "2229",
+    title: "MARK BROWN, HAPPY HOUR",
+    link: "https://www.realrootscafe.com/2024/07/05/mark-brown-happy-hour/",
+    reviewText: [
+      "No less than fourteen songs on this long player by Mark Brown. The American takes thirty-eight minutes and ten seconds. Old school country that could be linked to a row of names. However, this review is not about musicians who have influenced this singer-songwriter, who is hardly known in the Netherlands, but about an idiosyncratic talent who is slowly but surely building a unique oeuvre.",
+      "Mark Brown makes his debut with the release of the album Uncle Buckle. He has gained experience, played a lot and gathers a group of friends who make country music where the scratches are audible. With Skin & Bones in 2015, Brown broke through to a larger audience. He scores compliments and stars and the names Johnny Cash and Tom Waits are also mentioned on this album. Indeed, a wonderful but fitting combination. Brown sings about the good and bad things in life all with an underlying sense of mischievousness (Americana-UK) and singer-songwriters like Mark Brown are rare, CDs of the scope and style of Skin & Bones are even rarer (Country Music People)",
+      "Happy Hour contains fourteen songs. 'Scratch' is a song about scratching, but above all a composition about movement and survival. Where do you scratch? Brown asks. He puts life into perspective and thus scratches it to a tangible surface. Brown likes to question the people who think they want to decide everything. 'Inertia' starts with a slow guitar, the gritty voice delivers a text that the audience will listen to in every room. 'Happy Hour' is about life as Brown wants to live it and not about spending the last hour of the afternoon drinking. And again he doesn't take life too seriously and mainly enjoys everyday events. While the crowd cheers over another beer, Brown shrugs. The loyal fans are now singing along to the songs.",
+      "Closing track 'The Unanswered Prayer' is the story of a woman who dies in an accident. She hits her head on the steering wheel and gets lost in the clouds on the way to heaven. It is an everyday story, beautifully told by Brown. Details add color to the journey of the deceased woman. She gets lost up in the clouds. It is not wise to wait for the next release from Mark Brown. Enjoying Happy Hour is much better advice. No stars are given at Real Roots Café, but Brown would without a doubt score a maximum. Great record! (Independent)",
+    ],
+    reviewer: "Real Roots Cafe",
+    reviewerLink: "https://www.realrootscafe.com/",
+    reviewerImageSrc: "realroots.webp",
+
+    album: "happyHour",
+  },
+  {
     id: "2232",
     title: "MARK BROWN: HAPPY HOUR",
     link: "https://www.keysandchords.com/album-review-blog/mark-brown-happy-hour",
