@@ -12,6 +12,26 @@ export type albumReviewType = {
 
 export const reviews = [
   {
+    id: "2224",
+    title: "Mark Brown",
+    link: "https://www.altcountry.nl/blog/2024/07/mark-brown-2/",
+    reviewText: [
+      "Nine years ago we pointed out in the Skin & Bone review that Mark Brown's music consists of many shades of brown. And that that definitely fits with roots music. We compared the voice of the singer-songwriter from Maryland with Greg Brown. Happy Hour's Americana (self-published) has a broader color palette. Because what about the disco that resonates in Scratch? Above all, it makes it clear that the American is quite stubborn and wants to go his own way. In terms of sound, think of Johnny Dowd, also someone who is contrary by nature. Due to his hoarse singing voice, Davenport can be compared to Malcolm Holcombe, who died in March of this year. The choir on the title track goes a bit off the rails; not so bad, because Brown doesn't want to seem too serious. According to him, that does not fit with Americana. So don't be surprised if Happy Hour seems to take different paths on some songs. Gasoline Hands sounds like new wave from the Caribbean. And the organ and guitar (almost highlife) on Acetone would not be out of place on a Talking Heads record. On The Ridge there is a guitar solo with those loose strings that sounds a bit south of the border.",
+    ],
+    reviewer: "Alt Country NL",
+    reviewerLink: "https://www.altcountry.nl/blog/",
+    album: "happyHour",
+  },
+  {
+    id: "2225",
+    title: "Happy Hour Review",
+    reviewText: [
+      "Happy Hour is the third album from Americana singer-songwriter Mark Brown and his band, UNCLE BUCKLE. Inspired by Johnny Cash and Tom Waits, Mark writes very individual songs in the country genre which sound very jolly until you dig a bit deeper to where the Waitsian darkness lies. 'Happy Hour' is anything but and is really where the gloves come off.",
+    ],
+
+    album: "happyHour",
+  },
+  {
     id: "2226",
     title: "MARK BROWN - HAPPY HOUR",
     link: "https://www.fatea-records.co.uk/magazine/reviews/MarkBrown/",
