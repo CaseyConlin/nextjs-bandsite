@@ -1,5 +1,6 @@
 export type albumReviewType = {
   id: string;
+  slug: string;
   title: string;
   link?: string;
   subtitle?: string;
@@ -13,6 +14,7 @@ export type albumReviewType = {
 export const reviews = [
   {
     id: "2224",
+    slug: "2224",
     title: "Mark Brown",
     link: "https://www.altcountry.nl/blog/2024/07/mark-brown-2/",
     reviewText: [
@@ -21,18 +23,21 @@ export const reviews = [
     reviewer: "Alt Country NL",
     reviewerLink: "https://www.altcountry.nl/blog/",
     album: "happyHour",
+    reviewerImageSrc: "altcountrynl.webp",
   },
   {
     id: "2225",
+    slug: "2225",
     title: "Happy Hour Review",
     reviewText: [
       "Happy Hour is the third album from Americana singer-songwriter Mark Brown and his band, UNCLE BUCKLE. Inspired by Johnny Cash and Tom Waits, Mark writes very individual songs in the country genre which sound very jolly until you dig a bit deeper to where the Waitsian darkness lies. 'Happy Hour' is anything but and is really where the gloves come off.",
     ],
-
+    reviewer: "Print Review",
     album: "happyHour",
   },
   {
     id: "2226",
+    slug: "2226",
     title: "MARK BROWN - HAPPY HOUR",
     link: "https://www.fatea-records.co.uk/magazine/reviews/MarkBrown/",
     reviewText: [
@@ -50,9 +55,11 @@ export const reviews = [
     reviewer: "Fatea Magazine",
     reviewerLink: "https://www.fatea-records.co.uk/magazine/",
     album: "happyHour",
+    reviewerImageSrc: "fatealogo.webp",
   },
   {
     id: "2227",
+    slug: "2227",
     title: "MARK BROWN - HAPPY HOUR",
     link: "https://maximumvolumemusic.com/release-week-round-up-5th-july-mark-brown-thunder-horse-duel-ruts-d-c/",
     reviewText: [
@@ -68,6 +75,7 @@ export const reviews = [
   },
   {
     id: "2228",
+    slug: "2228",
     title: "MARK BROWN - HAPPY HOUR",
     link: "https://rootstime.be/index.html?https://rootstime.be/CD%20REVIEUW/2024/JUL1/CD10.html",
     reviewText: [
@@ -84,6 +92,7 @@ export const reviews = [
   },
   {
     id: "2229",
+    slug: "2229",
     title: "MARK BROWN, HAPPY HOUR",
     link: "https://www.realrootscafe.com/2024/07/05/mark-brown-happy-hour/",
     reviewText: [
@@ -100,6 +109,7 @@ export const reviews = [
   },
   {
     id: "2232",
+    slug: "2232",
     title: "MARK BROWN: HAPPY HOUR",
     link: "https://www.keysandchords.com/album-review-blog/mark-brown-happy-hour",
     reviewText: [
@@ -111,6 +121,7 @@ export const reviews = [
   },
   {
     id: "2231",
+    slug: "2231",
     title: "MARK BROWN – HAPPY HOUR",
     link: "https://www.paris-move.com/reviews/mark-brown-happy-hour/",
     reviewText: [
@@ -124,6 +135,7 @@ export const reviews = [
   },
   {
     id: "2189",
+    slug: "2189",
     title: "Skin & Bone Review",
     link: "http://www.puremzine.com/mark-brown-skin-and-bone/",
     subtitle:
@@ -143,6 +155,7 @@ export const reviews = [
   },
   {
     id: "2208",
+    slug: "2208",
     title: "Skin & Bone Review",
     subtitle: "A Country Diamond in the Rough",
     link: "https://rockingmagpie.wordpress.com/cd-reviews-2015/mark-brown-skin-bone/",
@@ -164,6 +177,7 @@ export const reviews = [
   },
   {
     id: "2094",
+    slug: "2094",
     title: "Review of Skin & Bone",
     reviewText: [
       "Mark Brown’s long-awaited new CD, Skin and Bone, is finally here. And skin and bone it is, as it rips off the veneer of happy faces and genteel manners—forget easy living—and reveals the pain, longing, and despair you feel sometimes, be it for a lifeless tractor, a gal who just ain’t gonna be there, or just because the moon makes a face at you. Herein lies an artistic dilemma: if you only sing about happy things, you run out of material real quick.",
@@ -188,6 +202,7 @@ export const reviews = [
 
   {
     id: "2177",
+    slug: "2177",
     reviewText: [
       "MarkBrown is a new name to me and Skin & Bone is his second self-released album due out in September. Fourteen tracks all written by the singer-songwriter who pours a lot of feeling into his songs, the album was excellently produced by Grammy Award-winning Dean Jones with just a handful of guest musicians. The result is a very intimate album that makes you feel Brown is just telling you his personal stories. The backing is beautifully balanced and sensitive leaving the vocals crystal clear on every track. I can never understand why producers don't give priority to clear vocals on folk and country atoums. To be fair it is usualy more folk than country that falls into this trap.",
       "Mark Brown is a fine songwriter inviting comparisons to John Prine and several other greats. I would love to see him live so perhaps this latest album will help pave the way for a visit to these shores.",
@@ -200,6 +215,7 @@ export const reviews = [
 
   {
     id: "2186",
+    slug: "2186",
     title: "Skin & Bone Review",
     link: "http://www.keysandchords.com/album-review-blog/mark-brown-skin-and-bone",
     reviewText: [
@@ -217,6 +233,7 @@ export const reviews = [
 
   {
     id: "2199",
+    slug: "2199",
     title: "Mark Brown, 'Skin & Bone' (Self-Released)",
     link: "http://www.gloucestershireecho.co.uk/Kevin-Bryan-s-record-reviews/story-27579281-detail/story.html#ixzz3j6w2dAzr",
     reviewText: [
@@ -229,6 +246,7 @@ export const reviews = [
 
   {
     id: "2207",
+    slug: "2207",
     title: "MARK BROWN SKIN & BONE",
     subtitle: "by Matthew Boulte",
     reviewText: [
@@ -243,6 +261,7 @@ export const reviews = [
 
   {
     id: "2230",
+    slug: "2230",
     title: "Skin & Bone Review",
     subtitle: "Four star review from R2 Magazine - Simon Hughes",
     reviewText: [

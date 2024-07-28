@@ -13,7 +13,7 @@ export type eventType = {
 
 export const events = [
   {
-    eventStartDate: "2024-07-20T19:00",
+    eventStartDate: "2024-07-20T19:30",
     eventEndDate: "2024-07-20T20:00",
     title: "Rosendale Street Festival 2024",
     address: "434 Main Street",

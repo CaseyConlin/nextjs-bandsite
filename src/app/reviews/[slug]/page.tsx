@@ -1,23 +1,56 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import Typography from "@mui/material/Typography";
 
-import {
-  ReviewShortCard,
-  ReviewShortCardProps,
-} from "@/components/ReviewShortCard";
 import { reviews } from "@/data/reviews";
 
-export const metadata = {
-  title: "Reviews",
-  description:
-    "Reviews for Mark Brown's Americana music albums and performances.",
-};
+import { ReviewCard } from "@/components/ReviewCard";
+import { albumReviewType } from "@/data/reviews";
 
-export default function Page() {
+export async function generateStaticParams() {
+  return reviews.map((review: albumReviewType) => ({
+    slug: review.slug.replaceAll(/\s/g, ""),
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  // read route params
+  const id = params.slug;
+
+  const reviewData = reviews.find((review) => {
+    return review.slug == id;
+  });
+
+  // optionally access and extend (rather than replace) parent metadata
+  // const previousImages = (await parent).openGraph?.images || []
+
+  return {
+    title: reviewData?.title,
+    description: reviewData?.reviewText[0],
+    // openGraph: {
+    //   images: ['/some-specific-page-image.jpg', ...previousImages],
+    // },
+  };
+}
+
+// export const metadata = {
+//   title: "Reviews",
+//   description:
+//     "Reviews for Mark Brown's Americana music albums and performances.",
+// };
+
+export default function Page({ params }: { params: { slug: string } }) {
+  const reviewData = reviews.find((review) => {
+    return review.slug == params.slug;
+  });
+
   return (
     <Container maxWidth="xl">
       <Typography
@@ -64,40 +97,22 @@ export default function Page() {
           .
         </Typography>
       </Box>
+      {reviewData && <ReviewCard review={reviewData} />}
 
-      {reviews.length > 0 && (
-        <Grid
-          container
-          spacing={2}
-          maxWidth={"xl"}
-          p={2}
-          pl={-1}
-          margin={"auto"}
-          justifyContent="space-evenly"
-          // alignSelf={"stretch"}
-          sx={{ p: { xs: 1, md: 2 }, pl: { xs: 0, md: -1 } }}
+      <Link href="/reviews">
+        <Typography
+          variant="accent"
+          color="white"
+          pl={2}
+          fontSize="2rem"
+          sx={{
+            textShadow:
+              "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)",
+          }}
         >
-          {reviews.map((review, i) => {
-            return (
-              <Grid
-                xs={12}
-                sm={5}
-                md={3}
-                alignSelf={"stretch"}
-                key={review.title}
-              >
-                <ReviewShortCard
-                  title={review.title}
-                  imageSource={review.reviewerImageSrc}
-                  link={review.slug}
-                  reviewer={review.reviewer}
-                  random={Math.floor(Math.random() * (3 - 1 + 1) + 1)}
-                />
-              </Grid>
-            );
-          })}
-        </Grid>
-      )}
+          Back to Reviews
+        </Typography>
+      </Link>
     </Container>
   );
 }
