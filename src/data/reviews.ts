@@ -13,6 +13,38 @@ export type albumReviewType = {
 
 export const reviews = [
   {
+    id: "2222",
+    slug: "2222",
+    title: "Mark Brown Happy Hour",
+    link: "https://writteninmusic.com/albumrecensie/mark-brown-happy-hour/",
+    reviewText: [
+      `During his childhood in North Carolina he already listened to Johnny Cash, Mark Brown would never let go of that striking music with stories that illustrate the raw essence of American life. His first concert with Tom Waits in 1975 is another determining factor for his further musical development. The singer-songwriter and guitarist, who has now moved to New York, made music there with his band Uncle Buckle and musician friends.`,
+      `On his third solo stage, those old friends provide instrumental backing, alongside guitarist Ken McGloin, Dean Jones adds atmospheric accents to the string playing of . These diverse musical styles are explored here, and it is not just the somewhat ragged, hoarse voice timbre that is reminiscent of Waits and Cash.`,
+      `The title song comes close to the performance of 'The Man In Black' with an exuberant western passage running past at an extended trot. With Long Time we remain emphatically in the prairie atmosphere, warm pedal steel sounds blend in with the other string work.`,
+      `Gasoline Hands refers to the rhythm of steel bands from the Caribbean. Acetone also combines elegant organ sounds with exotic rhythms. In passing, Brown talks about the similarities and differences about customs on both sides of The Mason Dixieline in Davenport and Deer Cut and Wrapped.`,
+      `The fourteen tracks invariably have a loose, informal atmosphere, it starts on the cover of the sleeve with a photo of Mark Brown among seagulls foraging on a garbage dump.`,
+      `Mark Brown's album Happy Hour was released independently on July 5, 2024.`,
+    ],
+    reviewer: "Written in Music",
+    reviewerLink: "https://writteninmusic.com/",
+    album: "happyHour",
+    reviewerImageSrc: "writteninmusic.webp",
+  },
+  {
+    id: "2223",
+    slug: "2223",
+    title: "MARK BROWN Happy Hour",
+    link: "https://www.ox-fanzine.de/ox-fanzine-175/",
+    reviewText: [
+      `Until now, US singer/songwriter Mark Brown was active with his band UNCLE BUCKLE. With "Happy Hour" there is now a solo album, with a classic mix of country and folk, as we know it from Johnny Cash. And not only that, Mark Brown's voice is also reminiscent of the legendary "Man in Black" on more than one occasion. Musically, "Happy Hour" also sounds like a cross-section of his repertoire, but after all, Mark Brown also held his first Cash record in his hands at the age of six. From ballads to fast-paced country songs, from sparsely instrumented pieces to pieces lavishly spiced up with slide guitar, everything is there. By the way, "Inertia" sounds like "Unten am Hafen", the sailor's song by Rio Reiser, and the opening piece "Scratch" surprises with catchy funky sounds.`,
+      "Kay Werner",
+    ],
+    reviewer: "Ox Fanzine",
+    reviewerLink: "https://www.ox-fanzine.de/",
+    album: "happyHour",
+    reviewerImageSrc: "oxfuze.webp",
+  },
+  {
     id: "2224",
     slug: "2224",
     title: "Mark Brown",
