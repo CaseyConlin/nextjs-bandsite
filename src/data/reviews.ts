@@ -13,6 +13,22 @@ export type albumReviewType = {
 
 export const reviews = [
   {
+    id: "2221",
+    slug: "2221",
+    title: "Mark Brown Happy Hour Self Release",
+    link: "https://www.lonesomehighway.com/music-reviews/2024/8/5/ryszwz1174gzhnwr15qiea59e3evuw/",
+    reviewText: [
+      `Ulster County, New York is home to this interesting singer songwriter and his biography is one that would make you want to take notice of his music and his words of hard earned experience. Mark has at various intervals worked as a mechanic, a commercial fisherman, a carpenter and a farmer. His road has been filled with interesting encounters along the way and these inform his songwriting, as can only be expected. This is his third album release and he previously performed in the band Uncle Buckle.`,
+      `There are a number of quirky moments on the album and at just 38 minutes, the fourteen songs don’t overstay their welcome, making the listening experience very enjoyable. Scratch asks the question and answers it by listing a series of places where people stop, to take a moment and .. scratch! An interesting choice to open the album and there is a distinct nod to Stan Ridgeway on the song Davenport with fine backing harmonies and a song about just lounging in the yard on a large sofa. Inertia celebrates the fine art of idleness and the urge to do nothing in the face of mounting chores and tasks. The fun of Happy Hour is paired with some mean guitar licks as the craziness of family life plays out. The calypso groove of Gasoline Hands is addictive, with a deep bass line, jazzy percussion and female chorus line.`,
+      `The songs Long Time, Broken Glass and God Bless Me Jesus have a nice Country influence in the arrangements, and the final track The Unanswered Prayer is a nice acoustic coda to a very engaging album that throws up many surprises. Mark Brown wrote all the songs and delivers on lead vocals and guitar. He is joined by Ken McGloin (guitar), Mark Murphy (bass), Dean Sharp (drums), Dean Jones (banjo, keyboards, vocals), Dakota Holden (pedal steel), Katie Mullins (vocals). Both Jones and McGloin handled the production duties and the results are very rewarding.`,
+      `Paul McGee`,
+    ],
+    reviewer: "Lonsome Highway",
+    reviewerLink: "https://www.lonesomehighway.com/",
+    album: "happyHour",
+    reviewerImageSrc: "lonsomehighway.webp",
+  },
+  {
     id: "2222",
     slug: "2222",
     title: "Mark Brown Happy Hour",
