@@ -13,6 +13,21 @@ export type albumReviewType = {
 
 export const reviews = [
   {
+    id: "2220",
+    slug: "2220",
+    title: "Album Review: Mark Brown | Happy Hour",
+    link: "https://www.chronogram.com/arts/album-review-mark-brown-happy-hour-21613193/",
+    reviewText: [
+      `The cover of Mark Brown's third album captures him standing on the recently emptied bed of a pickup truck overlooking a landfill. Work weary, he stares down, considering the fate of two items yet to escape the seagull-scavenged death of an out-of-sight, out-of-mind throw-away culture. Will the remaining roof shingles and yellow metal sign succumb to their rancid grave of destiny? All we know is that the novelty token from someone's now-defunct basement bar has inspired the title of his new album Happy Hour. An apt example of life's happenstance ironies sunning the seeds of art's fodder.`,
+      `Most people might discard pontifications on the the oddities of the daily grind, but Brown finds inspiration from these musings and breathes this life into his lyrics and music. Contemplations include the scratching of lottery tickets and subsequent spontaneous dance parties in Stewarts, the regional acceptability of deer targets in the yard, the smell of gasoline hands, inertia, PCP, Jesus, and the Shawangunk Ridge. The 14 songs were recorded by Dean Jones and Ken McGloin, both of whom join in on various instruments, sprinkling their magical music dust. Mark Murphy, Dean Sharp, Dakota Holden, and Kate Mullins add seasoning to the tasty, fried-chicken rockabilly and some of the more earnest and acoustic-leaning tunes with flavoring like Americana a la Cake or a gentler Giant Sand. The makeshift band flexes everything from raunchy disco bass lines to lyrical pedal steel, funky banjo, and many versions of sweet acoustic mayhem punchy with that all-nighter moonshine aftertaste.`,
+      `Jason Broome`,
+    ],
+    reviewer: "Chronogram",
+    reviewerLink: "https://www.chronogram.com/",
+    album: "happyHour",
+    reviewerImageSrc: "chronogram.webp",
+  },
+  {
     id: "2221",
     slug: "2221",
     title: "Mark Brown Happy Hour Self Release",
