@@ -59,7 +59,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     description: eventData?.info[0],
     offers: {
       "@type": "Offer",
-      url: eventData?.ticketLink,
+      url: eventData?.ticketLink ? eventData?.ticketLink : "",
       price: eventData?.ticketCost ? eventData.ticketCost : "0",
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",

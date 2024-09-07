@@ -13,7 +13,7 @@ export type GigPageHeaderProps = {
   date: string;
   description: string[];
   imageSource: string;
-  link: string;
+  link?: string;
   ticketCost?: string;
 };
 
@@ -104,11 +104,13 @@ export const GigPageHeader = ({
                     {ticketCost ? `$${ticketCost}` : `Free`}
                   </Typography>
                 </Typography>
-                <LinkButton
-                  newWindow={true}
-                  link={link}
-                  text="Tickets & More Info"
-                />
+                {link && (
+                  <LinkButton
+                    newWindow={true}
+                    link={link}
+                    text="Tickets & More Info"
+                  />
+                )}
               </Box>
             </CardContent>
           </Grid>
