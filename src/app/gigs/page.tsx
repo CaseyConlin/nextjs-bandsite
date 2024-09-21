@@ -101,6 +101,8 @@ export default function Page() {
                   sm={5}
                   md={4}
                   alignSelf={"stretch"}
+                  alignItems={"stretch"}
+                  height={"100%"}
                   key={event.title}
                 >
                   <GigCard

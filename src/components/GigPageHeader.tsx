@@ -38,7 +38,9 @@ export const GigPageHeader = ({
         <Grid
           container
           flexDirection="row"
-          sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
+          sx={{
+            justifyContent: { xs: "center", md: "flex-start" },
+          }}
         >
           <Grid
             md={5}

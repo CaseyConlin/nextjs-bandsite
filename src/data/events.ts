@@ -31,8 +31,8 @@ export const events = [
     added: "2024-06-01",
   },
   {
-    eventStartDate: "2024-09-21T19:00",
-    eventEndDate: "2024-09-21T21:00",
+    eventStartDate: "2024-09-21T16:00",
+    eventEndDate: "2024-09-21T18:30",
     title: "Muisic at Willow Kiln Park",
     address: "5 Hardenburgh Lane",
     venue: "Willow Kiln Park",
@@ -41,11 +41,11 @@ export const events = [
     state: "NY",
     zip: "12472",
     country: "US",
-    // ticketLink: "",
+    ticketLink: "https://www.rosendaleheartsoul.org/event/joppenbergh-jam/",
     info: [
       "Join us for an unforgettable evening of music at scenic Willow Kiln Park in Rosendale, where we'll be playing with Ken Mcgloin, Mark Murphy and Dean Jones.",
     ],
-    imgSrc: "512px-Willow_Kiln_Park.jpg",
+    imgSrc: "JoppenberghJAM24.png",
     added: "2024-06-01",
   },
   {

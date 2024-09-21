@@ -13,6 +13,20 @@ export type albumReviewType = {
 
 export const reviews = [
   {
+    id: "2219",
+    slug: "2219",
+    title: "Mark Brown, Happy Hour (SELF PUBLISHED)",
+    link: "/Mark Brown - Happy Hour - review - Folker (Germany) - issue 3.24 - September 2024.pdf",
+    reviewText: [
+      `Mostly acoustic and only moderately electrically amplified, the music of Mark Brown is a prime example of what is summarized under the term Americana. Deliberately kept in lo-fi quality, with clear influences from Johnny Cash to Tom Waits to Townes Van Zandt (but without imitating his deep melancholy), Mark Brown paints a picture of simple, rural America.`,
+      `ah`,
+    ],
+    reviewer: "Folker World",
+    reviewerLink: "https://folker.world/",
+    album: "happyHour",
+    reviewerImageSrc: "folkerworld.webp",
+  },
+  {
     id: "2220",
     slug: "2220",
     title: "Album Review: Mark Brown | Happy Hour",
