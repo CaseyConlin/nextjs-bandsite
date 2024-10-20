@@ -13,6 +13,70 @@ export type albumReviewType = {
 
 export const reviews = [
   {
+    id: "2215",
+    slug: "2215",
+    title: "Mark Brown - Happy Hour",
+    link: "https://www.terrascope.co.uk/Reviews/Rumbles_Autumn24.xhtml/",
+    reviewText: [
+      `Mark Brown delivers his third solo album, his distinctive, gruff vocals are framed on a strong batch of songs by a few of his trusted long-time musical friends, Ken McGloin on guitar, Mark Murphy on bass, Dean Sharp on drums, Dean Jones playing keyboards, banjo and vocals, Dakota Holden pedal steel guitar and Katie Mullins adds vocals, Mark plays guitar and sings. The album is firmly in the absolutely vast Americana genre, populated by songs of misfits and drifters, of dusty roads, Inertia and drugs. I’m reminded of artists like Greg Brown and John Prine; especially for his playful slacker humour, ‘Gasoline Hands’ has a nice calypso thing going on with it, ‘Acetone’ features some tasty organ and exotic rhythms, ‘Happy Hour’ has some great guitar and ‘Davenport’ celebrates the sloth in all of us, this is a fine album, it breezes by in just over half an hour.`,
+    ],
+    reviewer: "Terrascope Rumbles",
+    reviewerLink: "https://www.terrascope.co.uk/",
+    album: "happyHour",
+    reviewerImageSrc: "rumbles.webp",
+  },
+  {
+    id: "2216",
+    slug: "2216",
+    title: "Happy Hour - review (3.5 stars)",
+    link: "https://www.heavenmagazine.nl/",
+    reviewText: [
+      `Also from America: Mark Brown. When he obtained a Johnny Cash LP at the age of six, he cherished it. That Cash is a great influence you can hear when listening to his third album HAPPY HOUR, both in the compositions and in the singing. Brown has a beautiful, mature voice, with a fine frayed edge. However, he regularly deviates from the country path, making this album more varied than an average album by his inspiration.`,
+    ],
+    reviewer: "Heaven Magazine",
+    reviewerLink: "https://www.heavenmagazine.nl/",
+    album: "happyHour",
+    reviewerImageSrc: "heaven.webp",
+  },
+  {
+    id: "2217",
+    slug: "2217",
+    title: "Americana Roundup by Michael Hingston",
+    link: "/AR2024.pdf",
+    reviewText: [
+      `Mark Brown is originally fom North Carolina but lives in New York State. He cites Johnny Cash and Tom Waits among his early influences, but he draws on a far wider palette on his third album Happy Hour, which is his first for a few years. There are lots of ideas over 14 tracks of economic duration that were recorded largely with long-term collaborators. The songs move through genres and moods and switch rapidly between quirky ideas, comedic lyrics and darker moments. Brown packs a lot into a varied and entertaining 38 minutes`,
+    ],
+    reviewer: "Country Music People",
+    reviewerLink: "https://cmpcountry.com/",
+    album: "happyHour",
+    reviewerImageSrc: "cmp.webp",
+  },
+  {
+    id: "2218",
+    slug: "2218",
+    title: "New Release: Mark Brown – Happy Hour",
+    link: "https://bluestownmusic.nl/new-release-mark-brown-happy-hour/",
+    reviewText: [
+      `Mark Brown – Happy Hour
+Format: CD – Digital
+Label: Independent
+Release: 2024
+`,
+      `Release date: July 5, 2024`,
+      `Meet Mark Brown, an epitome of Americana music`,
+      `It all started when Mark got his hands on his first Johnny Cash record at the tender age of 6. That vinyl became his prized possession, spinning tales of love, heartache, and the raw essence of American life. He listened until the grooves wore thin, absorbing every note and image like a sponge. It was a pivotal moment in 1975 when a farrier took him to his very first Tom Waits show that ignited a fire in Mark’s soul. The music set fire to the barn, flipped the car in the ditch, and transformed Mark’s trajectory forever. From that moment on, he knew music wasn’t just a passion but a calling.`,
+      `Mark has been honing his craft, writing songs that are as carefully constructed as a Swiss watch, yet with a soulful integrity that resonates like an old grandfather clock. His music never takes itself too seriously, reflecting the down-to-earth charm that defines Americana.`,
+      `With his band Uncle Buckle, Mark has shared stages and crafted memories. Now, with his third album, he’s exploring his solo sound with a backing band of both longtime collaborators and newfound friends. Together, they create a musical tapestry that paints vivid scenes of back roads, tar paper shacks, hope, heartbreak and a few cans of beer along with a cast of characters that are at once hard to place but at the same time oddly familiar.`,
+      `In his latest album, ‘Happy Hour,’ Mark’s distinctive voice is accompanied by his band of longtime friends, Ken McGloin joining in on guitar, Mark Murphy on bass, Dean Sharp on drums and the versatile talents of Dean Jones. When they play, it’s as if the time stands still, the lights dim and fine but agreeable dust settles in the room transporting listeners to another place where the roads are narrow and winding, the fields wide and the mountains high.`,
+      `Beyond the studio and stage, Mark takes his music on the road and has captivated audiences in Ireland, Alaska and some places in between with his solo tours. His singing and songwriting skills have garnered attention and praise solidifying his status as a rising star in the Americana scene.`,
+      `So next time you’re in need of a musical journey through the heartland of America, look no further than Mark Brown. With each strum of his guitar and every lyric he sings, he invites you to join him on a road trip through the soul of Americana.`,
+    ],
+    reviewer: "Bluestown Music",
+    reviewerLink: "https://bluestownmusic.nl/",
+    album: "happyHour",
+    reviewerImageSrc: "bluestown.webp",
+  },
+  {
     id: "2219",
     slug: "2219",
     title: "Mark Brown, Happy Hour (SELF PUBLISHED)",

@@ -6,7 +6,13 @@ export const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  compiler: {
+    // https://nextjs.org/docs/advanced-features/compiler
+    // see https://styled-components.com/docs/tooling#babel-plugin for more info on the options.
+    styledComponents: true,
+  },
 };
+
 /**
  * script-src 'self' 'unsafe-eval' 'unsafe-inline';
  * */

@@ -34,6 +34,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
       {review.reviewerImageSrc && (
         <CardMedia
           sx={{
+            mt: 2,
             ml: { xs: 1, sm: 2 },
             width: 150,
             height: 150,

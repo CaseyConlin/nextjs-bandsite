@@ -84,7 +84,7 @@ export default function Page() {
                 sm={5}
                 md={3}
                 alignSelf={"stretch"}
-                key={review.title}
+                key={review.slug}
               >
                 <ReviewShortCard
                   title={review.title}
