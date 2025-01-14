@@ -13,6 +13,22 @@ export type albumReviewType = {
 
 export const reviews = [
   {
+    id: "2214",
+    slug: "2214",
+    title: "Mark Brown Happy Hour",
+    link: "https://www.mescalina.it/musica/recensioni/mark-brown-happy-hour",
+    reviewText: [
+      `Many artists produce their works on the fringes of the market and struggle to reach a large audience, despite their production being of equal, if not sometimes superior, to that of more famous names and supported by a worldwide distribution. Mark Brown is one of these musicians, who have a loyal audience, limited to a local area, gained through hundreds of concerts and continuous word of mouth among fans.  Happy Hour is the third album released by the no longer very young American singer-songwriter, who moves between North Carolina and the state of New York. Apparently it might seem like a classic Americana album, a bit country and a bit rock. However, in some songs there are dissonant moments, and the explanation is found if you know those that the musician indicates among his first musical references, Johnny Cash and Tom Waits.`,
+      `His lyrics talk about life lived, the difficult life of those who would like a positive change and look for it in a scratch card, as in Scratch ; or the mechanic who now lives with the smell of gasoline on him, in Gasoline Hands . It talks about life that goes away because of an accident, as in The Unanswered Prayer , the song that closes the album.`,
+      `The album is well played by Brown , with compositions that strike the listener and that go beyond the standard Country. The musicians who appear in Happy Hour have been following Brown for many years. The fourteen songs were recorded by Dean Jones and Ken McGloin , who joined the author playing various string instruments, while the rhythm section, never invasive, is entrusted to Mark Murphy and drummer Dean Sharp .`,
+      `This work, therefore, should allow the author to reach a wider number of admirers: we sincerely hope so!`,
+    ],
+    reviewer: "Mescaline",
+    reviewerLink: "https://www.mescalina.it/",
+    album: "happyHour",
+    reviewerImageSrc: "mescaline.webp",
+  },
+  {
     id: "2215",
     slug: "2215",
     title: "Mark Brown - Happy Hour",
